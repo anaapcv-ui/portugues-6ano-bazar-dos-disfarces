@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo · Bazar dos Disfarces · Português 6º</title>
+<style>
+  :root{--fundo:#140d22;--fundo2:#20163a;--borda:#3a2c5c;--borda2:#57437f;--ambar:#f2c14e;--verm:#ff6f61;--ciano:#3fd6c6;--lilas:#b9a3ff;--verde:#4fd08a;--texto:#f1eafc;--cinza:#b7a9d1}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:18px;background:radial-gradient(900px 420px at 50% -8%,rgba(183,156,255,.14),transparent 70%),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 2px,transparent 2px 4px),var(--fundo);color:var(--texto);line-height:1.6;padding-bottom:60px}
+  .geo,h1,h2,h3{font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  .filme{height:20px;background:conic-gradient(from -41deg at 50% 100%,#f2c14e 82deg,transparent 0) 0 3px/56px 16px repeat-x,conic-gradient(from -41deg at 50% 100%,#ff6f61 82deg,transparent 0) 28px 3px/56px 16px repeat-x,linear-gradient(#c9a66b,#c9a66b) 0 2px/100% 2px no-repeat;opacity:.9}
+  header{background:linear-gradient(120deg,#3a1f52,#241838 55%,#12263f);padding:26px 18px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.5);border-bottom:4px solid var(--ambar)}
+  header .selo{font-size:.78rem;letter-spacing:4px;color:#e2d8ff;text-transform:uppercase;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  header h1{font-size:1.6rem;margin:6px 0 2px}
+  header p{color:#e6def7;font-size:.92rem}
+  .wrap{max-width:860px;margin:0 auto;padding:16px}
+  .barra-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0}
+  .barra-nav a{background:var(--fundo2);color:var(--texto);text-decoration:none;padding:7px 12px;border-radius:20px;font-size:.85rem;border:1px solid var(--borda)}
+  .barra-nav a.on{background:var(--lilas);color:#1b1030;font-weight:bold}
+  .barra-nav a.lock{opacity:.5}
+  .painel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--fundo2);border:1px solid var(--borda);border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:.85rem}
+  .painel .btns{display:flex;gap:6px;flex-wrap:wrap}
+  button{cursor:pointer;font-family:inherit}
+  .mini{background:var(--fundo);color:var(--texto);border:1px solid var(--borda2);border-radius:8px;padding:6px 10px;font-size:.8rem}
+  .sec{background:var(--fundo2);border:1px solid var(--borda);border-radius:16px;padding:18px;margin:18px 0}
+  .sec h2{font-size:1.2rem;margin-bottom:10px}
+  .sec p{margin-bottom:8px}
+  .fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .ficha{background:#100a1c;border:1px solid var(--borda2);border-top:6px solid var(--ambar);border-radius:12px;padding:14px;font-size:.95rem}
+  .ficha h3{font-size:1.08rem;margin-bottom:8px}
+  .ficha.rel{border-top-color:var(--ambar)} .ficha.rel h3{color:var(--ambar)}
+  .ficha.man{border-top-color:var(--verm)} .ficha.man h3{color:#ff8f86}
+  .ficha.fc{border-top-color:var(--ciano)} .ficha.fc h3{color:var(--ciano)}
+  .ficha dt{font-weight:bold;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--cinza);margin-top:8px}
+  .ficha dd{margin-left:0}
+  .tabela{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
+  .tabela th,.tabela td{border:1px solid var(--borda);padding:8px 9px;text-align:left;vertical-align:top}
+  .tabela th{background:#2b2048}
+  .tabela th.rel{color:var(--ambar)} .tabela th.man{color:#ff8f86} .tabela th.fc{color:var(--ciano)}
+  .scroll{overflow-x:auto}
+  .anat{background:#f1eafc;color:#1b1520;border-radius:10px;padding:14px 16px;font-size:.98rem;line-height:1.8;margin:8px 0}
+  .anat span{padding:1px 4px;border-radius:4px}
+  .p-tit{background:#ffd08a} .p-int{background:#ffb1aa} .p-arg{background:#a8f0f2} .p-ass{background:#d9ccff}
+  .p-quem{background:#ffd08a} .p-quando{background:#a8f0f2} .p-onde{background:#c6f5d6} .p-oque{background:#ffb1aa} .p-como{background:#d9ccff} .p-pq{background:#ffe88a}
+  .leg{display:flex;flex-wrap:wrap;gap:6px;font-size:.8rem;margin-top:6px}
+  .leg span{padding:2px 8px;border-radius:10px;color:#1b1520;font-weight:bold}
+  .tl{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .tl-it{flex:1;min-width:130px;background:#100a1c;border:1px solid var(--borda2);border-top:4px solid var(--ciano);border-radius:10px;padding:9px 10px;font-size:.88rem}
+  .tl-it b{display:block;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;font-size:1rem;margin-bottom:2px;color:var(--ciano)}
+  .tl-it.cine{border-top-color:var(--ambar)} .tl-it.cine b{color:var(--ambar)}
+  .tl-it.real{border-top-color:var(--verde)} .tl-it.real b{color:var(--verde)}
+  .enredo{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:8px 0}
+  .enredo div{flex:1;min-width:140px;background:#100a1c;border:1px solid var(--borda2);border-radius:10px;padding:10px;font-size:.88rem;text-align:center}
+  .enredo div b{display:block;color:var(--lilas);font-size:1rem}
+  .enredo div.clim{border-color:var(--verm);box-shadow:0 0 12px rgba(255,90,78,.35)} .enredo div.clim b{color:var(--verm)}
+  .cadeia{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0;font-size:.9rem}
+  .cadeia .el{background:#2b2048;border:1px solid var(--lilas);border-radius:10px;padding:8px 10px}
+  .cadeia .seta{color:var(--lilas);font-weight:bold}
+  .formula{text-align:center;font-size:1.3rem;margin:10px 0;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  .formula b{color:var(--lilas)}
+  .postit{background:#ffe88a;color:#3a2a00;border-radius:4px;padding:12px 14px;font-size:.95rem;box-shadow:3px 4px 10px rgba(0,0,0,.4);transform:rotate(-1deg);margin:14px 0}
+  .postit b{color:#7a4a00}
+  .peg{background:#3a1419;border-left:5px solid var(--verm);border-radius:0 12px 12px 0;padding:12px 14px;margin:12px 0;font-size:.95rem}
+  .peg b{color:#ffb3bb}
+  .flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:10px 0}
+  .flip{perspective:900px;height:180px;cursor:pointer}
+  .flip .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip.on .inner{transform:rotateY(180deg)}
+  .flip .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:.92rem}
+  .flip .front{background:linear-gradient(135deg,#2a1d4a,#1b1430);border:1px solid var(--lilas);font-weight:bold;font-size:1.02rem}
+  .flip .front small{display:block;font-weight:normal;color:var(--cinza);font-size:.78rem;margin-top:6px}
+  .flip .back{background:#100a1c;border:1px solid var(--ciano);transform:rotateY(180deg)}
+  .glos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;font-size:.92rem}
+  .glos div{background:#100a1c;border:1px solid var(--borda);border-radius:8px;padding:8px 10px}
+  .glos b{color:var(--ambar)}
+  .fim{background:linear-gradient(120deg,#0f2a1c,#13392a);border:2px solid var(--verde);border-radius:16px;padding:18px;margin-top:24px;text-align:center}
+  .fim h3{color:#9be8bd;margin-bottom:8px}
+  .fim button{background:var(--verde);color:#04210f;border:none;border-radius:10px;padding:12px 20px;font-size:1rem;font-weight:bold;margin:6px;cursor:pointer;font-family:inherit}
+  .fim button:disabled{background:#2a2045;color:#8a7aa8;cursor:not-allowed}
+  .fim a.btn{display:inline-block;margin:6px;background:#3fd6c6;color:#04162e;text-decoration:none;font-weight:bold;padding:12px 20px;border-radius:10px}
+  .fim a.btn.off{background:#2a2045;color:#8a7aa8;pointer-events:none}
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(15,11,8,.97);z-index:50;align-items:center;justify-content:center;padding:16px}
+  .modal-bg.show{display:flex}
+  .modal{background:var(--fundo2);border:1px solid var(--lilas);border-radius:14px;padding:22px;max-width:440px;text-align:center}
+  .modal p{margin-bottom:14px}
+  .modal .big{font-size:2.2rem}
+  .modal a,.modal button{display:inline-block;background:var(--lilas);color:#1b1030;border:none;border-radius:8px;padding:10px 18px;font-weight:bold;text-decoration:none}
+  .rodape{text-align:center;color:var(--cinza);font-size:.8rem;margin-top:24px}
+
+  .ficha.reg{border-top-color:var(--ciano)} .ficha.reg h3{color:#8ff0e6}
+  .ficha.len{border-top-color:var(--lilas)} .ficha.len h3{color:var(--lilas)}
+  .ficha.cor{border-top-color:var(--verm)} .ficha.cor h3{color:#ff9a86}
+  .tabela th.reg{color:#8ff0e6} .tabela th.len{color:var(--lilas)} .tabela th.cor{color:#ff9a86}
+  .p-pre{background:#ffd08a} .p-ger{background:#a8d4ff} .p-det{background:#c6f5d6} .p-esp{background:#ffb1aa} .p-fin{background:#d9ccff}
+  .sext{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;background:#f1eafc;color:#1b1520;border-radius:10px;padding:12px 14px;max-width:460px;margin:8px auto;font-size:.95rem}
+  .sext .n{font-weight:bold;color:#7a4a00}.sext .l{border-bottom:2px dotted #8a7a5a;height:1.1em}.sext .r{font-weight:bold;padding:0 8px;border-radius:6px}
+  .r-a{background:#ffd08a}.r-b{background:#a8d4ff}.r-c{background:#ffb1aa}
+  .degrau{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:8px 0}
+  .degrau div{flex:1;min-width:150px;background:#100a1c;border:1px solid var(--borda2);border-radius:10px;padding:10px;font-size:.9rem;text-align:center}
+  .degrau div b{display:block;color:#8ff0e6;font-size:1rem}
+</style>
+</head>
+<body>
+<div class="filme"></div>
+<header>
+  <div class="selo">Bazar dos Disfarces · Português 6º ano · CCF · Mensal 3</div>
+  <h1>🗺️ Resumo — O Catálogo do Bazar</h1>
+  <p>Tudo o que entra na prova, numa página só: quadros, tabelas, post-its, cartas e glossário</p>
+</header>
+<div class="filme"></div>
+
+<div class="wrap">
+  <nav class="barra-nav" id="nav">
+    <a href="leitura-guiada.html">📖 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a class="on" href="resumo.html">🗺️ Resumo</a>
+    <a href="simulado.html" data-etapa="simulado">📝 Simulado</a>
+    <a href="index.html">🏠 Início</a>
+  </nav>
+
+  <div class="painel">
+    <span id="salvo">📏 Rolagem máxima: 0%</span>
+    <div class="btns">
+      <button class="mini" onclick="exportar()">📥 Exportar</button>
+      <button class="mini" onclick="document.getElementById('imp').click()">📤 Importar</button>
+      <input type="file" id="imp" accept="application/json" style="display:none" onchange="importar(event)">
+      <button class="mini" onclick="pedirZerar()">🗑️ Zerar tudo</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>🎭 1. As palavras disfarçadas: quadro comparativo</h2>
+    <div class="scroll"><table class="tabela">
+      <thead><tr><th></th><th class="reg">👯 Homônimas perfeitas (p. 77)</th><th class="reg">🎭 Homógrafas (p. 101)</th><th class="cor">🪞 Parônimas (p. 141)</th></tr></thead>
+      <tbody>
+        <tr><td><b>Grafia (escrita)</b></td><td>igual</td><td>igual (às vezes só muda o acento)</td><td>parecida</td></tr>
+        <tr><td><b>Pronúncia (som)</b></td><td>igual</td><td><b>diferente</b> (vogal mais aberta ou mais fechada)</td><td>parecida</td></tr>
+        <tr><td><b>Significado</b></td><td>diferente</td><td>diferente</td><td>diferente</td></tr>
+        <tr><td><b>Exemplo do livro</b></td><td>“Eu <b>caminho</b> pelas ruas…” (verbo) × “Não há outro <b>caminho</b>…” (substantivo)</td><td>“Eu <b>jogo</b> capoeira…” (verbo) × “O <b>jogo</b> de capoeira…” (substantivo) · tacacá × tacaca</td><td>“joga-se” × “jogasse”</td></tr>
+        <tr><td><b>Como descobrir</b></td><td>pelo contexto</td><td>pelo contexto e pelo sentido</td><td>pela terminação e pelo sentido</td></tr>
+      </tbody>
+    </table></div>
+    <div class="postit">📌 <b>Truque do nome:</b> <b>homo</b> = mesmo + <b>grafia</b> = escrita. Homógrafa = “mesma escrita”. Se além da escrita o <b>som</b> também é igual, é <b>homônima perfeita</b>.</div>
+    <div class="ficha reg" style="margin-top:10px"><h3>👑 Os quatro sentidos de “coroa” (exercício da p. 77)</h3>
+      <dl><dt>I</dt><dd>“Havia em seu enterro uma coroa mais florida que a outra.” → arranjo de flores</dd>
+      <dt>II</dt><dd>“O príncipe exibiu a coroa na sacada do palácio.” → enfeite da realeza</dd>
+      <dt>III</dt><dd>“Enfeitaram a mesa com a coroa do abacaxi.” → folhas de cima do abacaxi</dd>
+      <dt>IV</dt><dd>“Deu cara ou coroa?” → um lado da moeda</dd></dl></div>
+    <div class="ficha reg" style="margin-top:10px"><h3>🎭 As homógrafas da p. 102</h3>
+      <dl><dt>acordo</dt><dd>verbo “acordar” × <b>entendimento</b> — “O acordo foi assinado por todos os membros da comunidade.” (entendimento)</dd>
+      <dt>colher</dt><dd>verbo relacionado à colheita × <b>utensílio</b> — “A colher está na gaveta…” (utensílio)</dd>
+      <dt>corte</dt><dd>ato de cortar × <b>círculo do rei</b> — “…a chegada da corte portuguesa ao Brasil.” (círculo do rei)</dd>
+      <dt>molho</dt><dd><b>verbo “molhar”</b> × líquido, caldo — “Eu sempre molho primeiro os pés…” (verbo)</dd>
+      <dt>sede</dt><dd><b>lugar central</b> × vontade de beber — “A sede da associação fica nesta rua.” (lugar central)</dd></dl></div>
+  </div>
+
+  <div class="sec">
+    <h2>🪞 2. Parônimas: “-sse” × “-se”</h2>
+    <div class="fichas">
+      <div class="ficha cor"><h3>“-sse” → jogasse, pudesse</h3>
+        <dl><dt>O que é</dt><dd>uma <b>terminação</b> do verbo</dd>
+        <dt>Marca</dt><dd><b>pretérito imperfeito do subjuntivo</b></dd>
+        <dt>Indica</dt><dd>hipótese, desejo, possibilidade ligada ao passado, com traço de <b>condição</b></dd>
+        <dt>Exemplos do livro</dt><dd>“Se eu <b>pudesse</b>, eu lhe daria esse brinquedo.” · “Se você <b>pedisse</b>, eles deixariam você jogar.”</dd></dl></div>
+      <div class="ficha fc"><h3>“-se” → joga-se, pega-se</h3>
+        <dl><dt>O que é</dt><dd>uma <b>palavra independente</b> que se junta ao verbo (com hífen); <b>não</b> é terminação</dd>
+        <dt>Para que serve</dt><dd>nos <b>textos prescritivos</b> (instruções), <b>generaliza a ação</b></dd>
+        <dt>Exemplos do livro</dt><dd>“<b>Coloca-se</b> uma bandeira no alto do mastro.” · “<b>Tenta-se</b> escalar o mastro e pegar a bandeira.”</dd></dl></div>
+    </div>
+    <div class="peg">⚠️ <b>Pegadinha:</b> “Ele pediu que eu <b>jogasse</b>” (com -sse), e não “joga-se”. Hipótese ou desejo → <b>-sse</b>. Instrução que vale para todos → <b>-se</b>.</div>
+  </div>
+
+  <div class="sec">
+    <h2>🚪 3. Verbos: as três conjugações (p. 79 e Síntese p. 87)</h2>
+    <p>Verbos são <b>palavras variáveis</b> que se conjugam em <b>tempo, modo, número, pessoa e voz</b>.</p>
+    <div class="scroll"><table class="tabela">
+      <thead><tr><th class="len">1ª conjugação</th><th class="len">2ª conjugação</th><th class="len">3ª conjugação</th></tr></thead>
+      <tbody><tr><td>infinitivo em <b>-ar</b><br>estudar, passar, entrar, caminhar</td><td>infinitivo em <b>-er</b> + <b>pôr</b> e derivados<br>valer, caber, fazer, ser, ter · repor, compor, expor, transpor</td><td>infinitivo em <b>-ir</b><br>sair, subir, seguir, medir, possuir</td></tr></tbody>
+    </table></div>
+    <div class="postit">📌 <b>Por que “pôr” é da 2ª?</b> Porque a <b>forma antiga</b> do verbo “pôr” é <b>“poer”</b> (terminada em -er).</div>
+  </div>
+
+  <div class="sec">
+    <h2>🎭 4. Regulares × irregulares</h2>
+    <div class="fichas">
+      <div class="ficha rel"><h3>✅ Regulares</h3><dl><dt>Regra</dt><dd>mantêm a sua forma; só a <b>terminação</b> muda para indicar tempo e pessoa</dd><dt>Síntese</dt><dd>seguem uma conjugação padrão, sem alterações</dd></dl></div>
+      <div class="ficha man"><h3>🎭 Irregulares</h3><dl><dt>Regra</dt><dd>a <b>forma se altera</b> (muda muito) ao longo da conjugação</dd><dt>Exemplos</dt><dd><b>ser, estar, ter, haver</b> (muito usados como auxiliares em locuções verbais)</dd><dt>Lista do livro</dt><dd>dar, passear, odiar, ver, caber, fazer, dizer, ir, poder, querer, saber, trazer, possuir, sair, subir, seguir, vir, valer, medir</dd></dl></div>
+    </div>
+    <h3 style="margin:14px 0 6px;color:var(--lilas)">O verbo “ser” (tabela da p. 80)</h3>
+    <div class="scroll"><table class="tabela">
+      <thead><tr><th>Modo</th><th>Tempo</th><th>1ª pessoa (eu)</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="6"><b>Indicativo</b></td><td>Presente</td><td>eu sou</td></tr>
+        <tr><td>Pretérito perfeito</td><td>eu fui</td></tr>
+        <tr><td>Pretérito imperfeito</td><td>eu era</td></tr>
+        <tr><td>Pretérito mais-que-perfeito</td><td>eu fora</td></tr>
+        <tr><td>Futuro do presente</td><td>eu serei</td></tr>
+        <tr><td>Futuro do pretérito</td><td>eu seria</td></tr>
+        <tr><td rowspan="3"><b>Subjuntivo</b></td><td>Presente</td><td>que eu seja</td></tr>
+        <tr><td>Pretérito imperfeito</td><td>se eu fosse</td></tr>
+        <tr><td>Futuro</td><td>quando eu for</td></tr>
+        <tr><td><b>Imperativo</b></td><td>Afirmativo / Negativo</td><td>sê (tu), seja (você) / não sejas (tu), não seja (você)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="fichas" style="margin-top:12px">
+      <div class="ficha len"><h3>🔍 Pista 1 (p. 85)</h3><dl><dt>Regra</dt><dd>presente do indicativo → modelo do <b>presente do subjuntivo</b></dd><dt>Exemplo</dt><dd>eu valho → que eu valha · eu caibo → que eu caiba · eu venho → que eu venha · eu ponho → que eu ponha</dd></dl></div>
+      <div class="ficha len"><h3>🔍 Pista 2 (p. 85)</h3><dl><dt>Regra</dt><dd>pretérito perfeito → base do <b>imperfeito</b> e do <b>futuro do subjuntivo</b></dd><dt>Exemplo</dt><dd>eles viram → se eles vissem → quando eles virem · eles fizeram → fizessem → fizerem · eles quiseram → quisessem → quiserem</dd></dl></div>
+    </div>
+    <div class="peg">⚠️ <b>Pegadinha:</b> “Eu bebo → bebi”, “Eu corro → corri”… mas “Eu faço → ?” não segue o padrão: <b>fazer</b> é irregular. Na dúvida, consulte uma gramática.</div>
+  </div>
+
+  <div class="sec">
+    <h2>💍 5. Advérbios: o acessório da frase (pp. 104 e 123)</h2>
+    <p><b>Dez classes gramaticais:</b> <b>variáveis</b> (substantivos, artigos, adjetivos, verbos, pronomes e numerais) × <b>invariáveis</b> (<b>advérbios</b>, preposições, conjunções e interjeições).</p>
+    <p>O <b>advérbio</b> se junta a um <b>verbo</b>, a um <b>adjetivo</b> ou a <b>outro advérbio</b> para <b>modificar o sentido</b> deles; normalmente indica as <b>circunstâncias</b> da ação. Sua presença ou ausência <b>não compromete a estrutura</b> da oração, mas modifica o sentido.</p>
+    <div class="scroll"><table class="tabela">
+      <thead><tr><th class="rel">Modifica…</th><th class="rel">Exemplo do livro</th></tr></thead>
+      <tbody>
+        <tr><td>um verbo</td><td>O garoto corre <b>velozmente</b> (como) · <b>aqui</b> (onde) · <b>muito</b> (quanto).</td></tr>
+        <tr><td>um adjetivo</td><td>Essa garota é <b>muito</b> bonita.</td></tr>
+        <tr><td>outro advérbio</td><td>Todos sabem que ela dança <b>muito</b> bem.</td></tr>
+        <tr><td>a oração inteira (com vírgula)</td><td><b>Lamentavelmente</b>, a garota hoje não dançou bem.</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin:14px 0 6px;color:var(--ambar)">Locução adverbial (p. 104)</h3>
+    <p>Duas ou mais palavras com a função de advérbio: Os garotos correm <b>com vontade</b> (preposição + substantivo) · <b>por aqui</b> (preposição + advérbio) · <b>sem parar</b> (preposição + verbo). “Com lentidão” = “lentamente”.</p>
+  </div>
+
+  <div class="sec">
+    <h2>🏷️ 6. Tipos de advérbio (tabela da p. 124 e Síntese da p. 131)</h2>
+    <div class="scroll"><table class="tabela">
+      <thead><tr><th>Tipo</th><th class="rel">Advérbio</th><th class="rel">Locução adverbial</th></tr></thead>
+      <tbody>
+        <tr><td><b>Afirmação</b></td><td>sim, decerto, certamente, realmente, incontestavelmente, efetivamente</td><td>com certeza, por certo, sem dúvida, de fato</td></tr>
+        <tr><td><b>Dúvida</b></td><td>talvez, acaso, porventura, quiçá, possivelmente, provavelmente</td><td>por certo (provavelmente)</td></tr>
+        <tr><td><b>Negação</b></td><td>não, tampouco, nem, nunca, jamais</td><td>de forma alguma, de jeito algum, de modo algum</td></tr>
+        <tr><td><b>Intensidade</b></td><td>bastante, bem, demais, mais, menos, apenas, pouco, assaz, quanto, tanto, tão, meio</td><td>de muito, de pouco, em excesso, por completo, em demasia</td></tr>
+        <tr><td><b>Modo</b></td><td>assim, mal, bem, depressa, devagar, pior, melhor, alerta, suavemente, lentamente</td><td>às claras, às cegas, à toa, à vontade, às pressas, a pé, ao léu, de cor</td></tr>
+        <tr><td><b>Lugar</b></td><td>abaixo, acima, adiante, além, aqui, ali, aquém, atrás, acolá, dentro, fora, longe, perto, junto, detrás, defronte</td><td>à direita, à esquerda, ao lado, ao longe, de perto, por aqui, para onde, por dentro</td></tr>
+        <tr><td><b>Tempo</b></td><td>hoje, ontem, amanhã, agora, depois, antes, já, anteontem, sempre, nunca, tarde, jamais, outrora, raramente</td><td>à noite, à tarde, de súbito, de repente, vez por outra, hoje em dia</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin:14px 0 6px;color:var(--ambar)">❓ Advérbios interrogativos (p. 105)</h3>
+    <div class="scroll"><table class="tabela">
+      <tbody>
+        <tr><td><b>Onde</b> está meu pião?</td><td>lugar</td></tr>
+        <tr><td><b>Quando</b> você jogou peteca pela última vez?</td><td>tempo</td></tr>
+        <tr><td><b>Como</b> você encontrou meu caderno?</td><td>modo</td></tr>
+        <tr><td><b>Por que</b> você não quis pular corda?</td><td>causa</td></tr>
+        <tr><td><b>Para que</b> está guardando essa espiga de milho?</td><td>finalidade</td></tr>
+        <tr><td><b>Quanto</b> você gosta dessa boneca de pano?</td><td>intensidade</td></tr>
+      </tbody>
+    </table></div>
+    <div class="postit">📌 <b>“-mente” nem sempre é modo:</b> lentamente e suavemente = modo; certamente = afirmação; provavelmente = dúvida; raramente = tempo.</div>
+    <div class="postit">📌 <b>Mais de um sentido (p. 125):</b> “nunca”, “jamais” e “sempre” indicam tempo, mas também podem indicar <b>negação</b> ou <b>afirmação</b>. — “Você frequenta festas populares?” “Sempre!” / “Nunca!”</div>
+    <div class="peg">⚠️ <b>A posição muda o sentido</b> (p. 106): dependendo de onde o advérbio é colocado, a frase ganha sentidos diferentes. E em notícias e relatórios científicos, o advérbio pode revelar a <b>opinião do autor</b>.</div>
+  </div>
+
+  <div class="sec">
+    <h2>🕵️ 7. Detetive de classes (o que o livro traz de análise morfológica)</h2>
+    <div class="fichas">
+      <div class="ficha fc"><h3>Adjetivo × advérbio (p. 129)</h3><dl><dt>Adjetivo</dt><dd>Os dançarinos <b>animados</b>… · Os passos pareciam <b>suaves</b>… (caracterizam)</dd><dt>Advérbio</dt><dd>Os dançarinos <b>animadamente</b>… · Os passos <b>suavemente</b>… (dizem como)</dd></dl></div>
+      <div class="ficha fc"><h3>Os 3 disfarces de “meio” (p. 130)</h3><dl><dt>um pouco</dt><dd><b>advérbio</b> (invariável) — “O coronel ficou meio irritado…” · “Eu estava meio ansiosa…”</dd><dt>metade</dt><dd><b>numeral</b> (variável) — “…um sertão e meio…”</dd><dt>modo, maneira</dt><dd><b>substantivo</b> (variável) — “O único meio de fazê-lo se apresentar…”</dd></dl></div>
+      <div class="ficha fc"><h3>O teste do plural com “muito” (p. 130)</h3><dl><dt>Varia → não é advérbio</dt><dd>“mantos com <b>muitos</b> bordados”</dd><dt>Não varia → advérbio</dt><dd>“mantos <b>muito</b> bordados”</dd></dl></div>
+    </div>
+    <div class="peg">⚠️ <b>Análise morfológica do caderno:</b> o comunicado avisa que esse conteúdo foi registrado no caderno, e ele não está no livro. Revise o caderno antes da prova!</div>
+  </div>
+
+  <div class="sec">
+    <h2>🃏 8. Cartas do bazar (toque para virar)</h2>
+    <div class="flips">
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">Homônimas perfeitas<small>o que são?</small></div><div class="face back">Mesma pronúncia e mesma grafia, significados diferentes. Ex.: eu caminho × o caminho.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">Homógrafas<small>o que são?</small></div><div class="face back">Mesma grafia, pronúncia diferente (vogal aberta ou fechada). Ex.: eu jogo × o jogo.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">Parônimas<small>o que são?</small></div><div class="face back">Parecidas na grafia e na pronúncia, diferentes no sentido. Ex.: joga-se × jogasse.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">“-sse”<small>o que marca?</small></div><div class="face back">Pretérito imperfeito do subjuntivo: hipótese, desejo, possibilidade. Ex.: Se eu pudesse…</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">“pôr”<small>qual conjugação?</small></div><div class="face back">2ª conjugação: a forma antiga é “poer”. Vale para repor, compor, expor, transpor.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">Verbo irregular<small>o que é?</small></div><div class="face back">O que altera a sua forma na conjugação. Ex.: ser, estar, ter, haver.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">Locução adverbial<small>o que é?</small></div><div class="face back">Duas ou mais palavras com função de advérbio. Ex.: com vontade, por aqui, sem parar.</div></div></div>
+      <div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front">“meio” = um pouco<small>que classe?</small></div><div class="face back">Advérbio (invariável). Ex.: O coronel ficou meio irritado.</div></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>📚 9. Glossário</h2>
+    <div class="glos">
+      <div><b>Homônimas perfeitas</b> — mesma pronúncia e grafia, significados diferentes.</div>
+      <div><b>Homógrafas</b> — mesma grafia, pronúncia diferente (homo = mesmo + grafia = escrita).</div>
+      <div><b>Parônimas</b> — parecidas na grafia e na pronúncia, diferentes no sentido.</div>
+      <div><b>Contexto</b> — as outras palavras da frase, que mostram o sentido.</div>
+      <div><b>Verbo</b> — palavra variável que se conjuga em tempo, modo, número, pessoa e voz.</div>
+      <div><b>Conjugação</b> — grupo do verbo pela terminação do infinitivo: -ar (1ª), -er (2ª), -ir (3ª).</div>
+      <div><b>Verbo regular</b> — mantém sua forma na conjugação.</div>
+      <div><b>Verbo irregular</b> — altera sua forma na conjugação.</div>
+      <div><b>Verbo auxiliar</b> — ser, estar, ter, haver, usados em locuções verbais.</div>
+      <div><b>Locução verbal</b> — mais de um verbo juntos (ex.: “vai virar”).</div>
+      <div><b>Pretérito imperfeito do subjuntivo</b> — terminação “-sse”: hipótese, desejo, possibilidade.</div>
+      <div><b>Texto prescritivo</b> — texto de instruções; usa o “-se” para generalizar a ação.</div>
+      <div><b>Advérbio</b> — palavra invariável que modifica verbo, adjetivo ou outro advérbio.</div>
+      <div><b>Locução adverbial</b> — duas ou mais palavras com função de advérbio.</div>
+      <div><b>Advérbio interrogativo</b> — onde, quando, como, por que, para que… em perguntas.</div>
+      <div><b>Classes variáveis</b> — substantivo, artigo, adjetivo, verbo, pronome, numeral.</div>
+      <div><b>Classes invariáveis</b> — advérbio, preposição, conjunção, interjeição.</div>
+    </div>
+  </div>
+
+  <div class="fim" id="fim">
+    <h3 id="fim-h3">🔒 Próxima etapa: Simulado</h3>
+    <p id="fim-txt">Role até aqui e confirme a leitura para destravar o Simulado.</p>
+    <button id="btn-li" onclick="confirmarLeitura()" disabled>✅ Li o resumo até o fim</button>
+    <a class="btn off" id="btn-prox" href="simulado.html">📝 Pronto para o Simulado!</a>
+  </div>
+
+  <div class="rodape">Feito com carinho para o jovem aprendiz. 🎭</div>
+</div>
+
+<div class="modal-bg" id="lock">
+  <div class="modal">
+    <div class="big">🔒</div>
+    <p><b>Esta etapa ainda está trancada.</b></p>
+    <p id="lock-txt">Para abrir o Resumo, envie o Quiz.</p>
+    <a href="index.html">Voltar ao início</a>
+  </div>
+</div>
+<div class="modal-bg" id="modal" style="background:rgba(0,0,0,.75)">
+  <div class="modal">
+    <p id="modal-txt"></p>
+    <button onclick="fecharModal()" id="modal-ok">Ok</button>
+    <button class="mini" onclick="fecharModal()" id="modal-cancel" style="display:none;margin-left:8px">Cancelar</button>
+  </div>
+</div>
+
+<script>
+/* ====== TRILHA COM CADEADOS (módulo comum do kit) ====== */
+var KIT='bazar_disfarces_pt6';
+var TRILHA=[
+ {id:'leitura', chave:KIT+'_leitura_v1', nome:'Leitura Guiada', arquivo:'leitura-guiada.html', emoji:'📖'},
+ {id:'quiz', chave:KIT+'_quiz_v1', nome:'Quiz', arquivo:'quiz.html', emoji:'🎯'},
+ {id:'resumo', chave:KIT+'_resumo_v1', nome:'Resumo', arquivo:'resumo.html', emoji:'🗺️'},
+ {id:'simulado', chave:KIT+'_simulado_v1', nome:'Simulado', arquivo:'simulado.html', emoji:'📝'}
+];
+function lerJSON(k){ try{ var s=localStorage.getItem(k); return s?JSON.parse(s):null; }catch(e){ return null; } }
+function trilhaLiberada(){ var t=lerJSON(KIT+'_trilha_v1'); return !!(t&&t.liberadoPelosPais); }
+function etapaConcluida(id){ var e=TRILHA.filter(function(t){return t.id===id;})[0]; var d=lerJSON(e.chave); return !!(d&&d.concluido); }
+function podeAbrir(id){ var idx=TRILHA.map(function(t){return t.id;}).indexOf(id); if(idx<=0||trilhaLiberada()) return true; return etapaConcluida(TRILHA[idx-1].id); }
+function marcarNav(){
+  var links=document.querySelectorAll('#nav a[data-etapa]');
+  for(var i=0;i<links.length;i++){ var id=links[i].getAttribute('data-etapa'); if(!podeAbrir(id)){ links[i].classList.add('lock'); links[i].textContent='🔒 '+links[i].textContent.replace('🔒 ',''); links[i].setAttribute('title','Ainda trancado'); } else { links[i].classList.remove('lock'); links[i].textContent=links[i].textContent.replace('🔒 ',''); links[i].removeAttribute('title'); } }
+}
+
+function checarTrava(){
+  if(podeAbrir('resumo')) return true;
+  var L=lerJSON(KIT+'_leitura_v1');
+  document.getElementById('lock-txt').textContent=(L&&L.concluido)?'Para abrir o Resumo, envie o Quiz.':'Para abrir o Resumo, conclua a Leitura Guiada e envie o Quiz.';
+  document.getElementById('lock').classList.add('show');
+  document.querySelector('.wrap').style.filter='blur(8px)';
+  document.querySelector('.wrap').setAttribute('aria-hidden','true');
+  return false;
+}
+
+/* ====== ESTADO DO RESUMO ====== */
+var CHAVE=KIT+'_resumo_v1'; var mem={}; var estado=carregar();
+function carregar(){ try{ var s=localStorage.getItem(CHAVE); if(s) return JSON.parse(s);}catch(e){ if(mem[CHAVE]) return JSON.parse(mem[CHAVE]); } return {rolagemMax:0}; }
+function salvar(){ var s=JSON.stringify(estado); try{ localStorage.setItem(CHAVE,s);}catch(e){ mem[CHAVE]=s; } var d=new Date(); document.getElementById('salvo').textContent='📏 Rolagem máxima: '+Math.round(estado.rolagemMax||0)+'% · 💾 salvo às '+d.toLocaleTimeString('pt-BR')+' de '+d.toLocaleDateString('pt-BR'); }
+function medirRolagem(){
+  var h=document.documentElement; var total=h.scrollHeight-h.clientHeight; var pct= total<=0?100:Math.min(100,(window.scrollY||h.scrollTop)/total*100);
+  if(pct>(estado.rolagemMax||0)){ estado.rolagemMax=pct; salvar(); }
+  var b=document.getElementById('btn-li'); if(!estado.concluido && (estado.rolagemMax||0)>=90){ b.disabled=false; }
+}
+function confirmarLeitura(){ if(estado.concluido) return; if((estado.rolagemMax||0)<90) return; estado.concluido=true; estado.concluidoEm=new Date().toISOString(); salvar(); atualizarFim(); }
+function atualizarFim(){
+  var h3=document.getElementById('fim-h3'), txt=document.getElementById('fim-txt'), b=document.getElementById('btn-li'), a=document.getElementById('btn-prox');
+  if(estado.concluido||trilhaLiberada()){ h3.textContent='✅ Resumo lido — Simulado destravado!'; txt.textContent=estado.concluido?'Agora encare o Simulado valendo, como se fosse a prova.':'Trilha liberada pelos pais.'; b.disabled=!!estado.concluido||(estado.rolagemMax||0)<90; b.textContent=estado.concluido?'✅ Resumo concluído':'✅ Li o resumo até o fim'; a.classList.remove('off'); }
+  else { h3.textContent='🔒 Próxima etapa: Simulado'; txt.textContent=(estado.rolagemMax||0)>=90?'Confirme a leitura para destravar o Simulado.':'Role até o fim da página para habilitar o botão (rolagem: '+Math.round(estado.rolagemMax||0)+'%).'; a.classList.add('off'); }
+  marcarNav();
+}
+function exportar(){ var blob=new Blob([JSON.stringify(estado,null,2)],{type:'application/json'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='resumo_bazar-dos-disfarces.json'; a.click(); }
+function importar(ev){ var f=ev.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ try{ estado=JSON.parse(r.result); salvar(); atualizarFim(); mostrarModal('✅ Progresso importado!',false);}catch(e){ mostrarModal('❌ Arquivo inválido.',false);} }; r.readAsText(f); }
+var acaoZerar=null;
+function pedirZerar(){ acaoZerar=true; mostrarModal('Zerar a rolagem deste Resumo? (Se ele já foi concluído, a conclusão é mantida e o Simulado continua aberto.)',true); }
+function mostrarModal(txt,confirmar){ document.getElementById('modal-txt').innerHTML=txt; document.getElementById('modal').classList.add('show'); document.getElementById('modal-cancel').style.display=confirmar?'inline-block':'none'; document.getElementById('modal-ok').textContent=confirmar?'Sim, zerar':'Ok';
+  document.getElementById('modal-ok').onclick=function(){ if(confirmar&&acaoZerar){ var c=estado.concluido, ce=estado.concluidoEm; estado={rolagemMax:0}; if(c){estado.concluido=true; estado.concluidoEm=ce;} salvar(); atualizarFim(); } acaoZerar=null; fecharModal(); }; }
+function fecharModal(){ document.getElementById('modal').classList.remove('show'); }
+
+if(checarTrava()){ salvar(); atualizarFim(); window.addEventListener('scroll',function(){ medirRolagem(); atualizarFim(); }); setTimeout(function(){ medirRolagem(); atualizarFim(); },300); } else { marcarNav(); }
+</script>
+</body>
+</html>
