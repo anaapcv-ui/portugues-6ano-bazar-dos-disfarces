@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada · Bazar dos Disfarces · Português 6º</title>
+<style>
+  :root{
+    --fundo:#140d22; --fundo2:#20163a; --borda:#3a2c5c; --borda2:#57437f;
+    --ambar:#f2c14e; --verm:#ff6f61; --ciano:#3fd6c6; --lilas:#b9a3ff; --verde:#4fd08a;
+    --vermelho:#ff6f61; --texto:#f1eafc; --cinza:#b7a9d1; --postit:#ffe88a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:17px;background:
+    radial-gradient(900px 420px at 50% -8%,rgba(255,181,71,.16),transparent 70%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 2px,transparent 2px 4px),var(--fundo);
+    color:var(--texto);line-height:1.65;padding-bottom:60px}
+  .geo{font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;letter-spacing:.5px}
+  .filme{height:20px;background:conic-gradient(from -41deg at 50% 100%,#f2c14e 82deg,transparent 0) 0 3px/56px 16px repeat-x,conic-gradient(from -41deg at 50% 100%,#ff6f61 82deg,transparent 0) 28px 3px/56px 16px repeat-x,linear-gradient(#c9a66b,#c9a66b) 0 2px/100% 2px no-repeat;opacity:.9}
+  header{background:linear-gradient(120deg,#0d3b24,#14492f 50%,#241838);padding:24px 18px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.5);border-bottom:4px solid var(--verde)}
+  header .selo{font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;font-size:.78rem;letter-spacing:4px;color:#c9f5dc;text-transform:uppercase}
+  header h1{font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;font-size:1.6rem;margin:6px 0 2px}
+  header p{color:#dfe9e2;font-size:.92rem}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  .barra-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0}
+  .barra-nav a{background:var(--fundo2);color:var(--texto);text-decoration:none;padding:7px 12px;border-radius:20px;font-size:.85rem;border:1px solid var(--borda)}
+  .barra-nav a.on{background:var(--verde);color:#04210f;font-weight:bold}
+  .barra-nav a.lock{opacity:.5}
+  .intro{background:var(--fundo2);border:1px solid var(--borda);border-radius:14px;padding:16px;margin-bottom:16px}
+  .intro h2{color:var(--ambar);font-size:1.12rem;margin-bottom:8px;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  .intro ol{margin:8px 0 0 20px}
+  .legenda{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:.8rem}
+  .legenda span{padding:3px 10px;border-radius:12px;font-weight:bold}
+  .lg-reg{background:#12263f;color:var(--ciano)} .lg-len{background:#271d42;color:var(--lilas)} .lg-cor{background:#3b1512;color:#ffb1aa}
+  .lg-his{background:#0d3336;color:var(--ciano)} .lg-ver{background:#271d42;color:var(--lilas)}
+  .painel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--fundo2);border:1px solid var(--borda);border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:.85rem}
+  .painel .btns{display:flex;gap:6px;flex-wrap:wrap}
+  button{cursor:pointer;font-family:inherit}
+  .mini{background:var(--fundo);color:var(--texto);border:1px solid var(--borda2);border-radius:8px;padding:6px 10px;font-size:.8rem}
+  .mini:hover{background:#2a2045}
+  .parte{margin:26px 0 12px;padding:10px 14px;border-radius:12px;font-weight:bold;font-size:.95rem;letter-spacing:.5px;border:2px dashed var(--borda2);background:#181029;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  .parte.reg{color:var(--ciano);border-color:var(--ciano)} .parte.len{color:var(--lilas);border-color:var(--lilas)} .parte.cor{color:var(--verm);border-color:var(--verm)}
+  .parte.his{color:var(--ciano);border-color:var(--ciano)} .parte.ver{color:var(--lilas);border-color:var(--lilas)}
+  .bloco{background:var(--fundo2);border:1px solid var(--borda);border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+  .bloco.travado{opacity:.55}
+  .bloco-cab{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(90deg,#241838,#2b2048);border-bottom:1px dashed var(--borda2)}
+  .bloco-cab .num{color:#140d22;font-weight:bold;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;box-shadow:0 0 0 3px #140d22,0 0 0 5px currentColor;background:var(--ambar)}
+  .bloco.reg .num{background:var(--ciano)} .bloco.len .num{background:var(--lilas)} .bloco.cor .num{background:var(--verm)}
+  .bloco-cab h3{font-size:1.08rem;color:#fff;font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif}
+  .bloco-cab .porto{font-family:'Rockwell','Roboto Slab','Georgia','Times New Roman',serif;font-size:.72rem;color:var(--cinza);letter-spacing:2px;text-transform:uppercase}
+  .bloco-corpo{padding:16px}
+  .texto p{margin-bottom:10px}
+  .texto ul{margin:0 0 10px 20px}
+  .texto li{margin-bottom:5px}
+  .texto .destaque{font-weight:bold}
+  .bloco.reg .texto .destaque{color:#8ff0e6} .bloco.len .texto .destaque{color:var(--lilas)} .bloco.cor .texto .destaque{color:#ff9a86}
+  .bloco.his .texto .destaque{color:var(--ciano)} .bloco.ver .texto .destaque{color:var(--lilas)}
+  .olhar{background:#2e2440;border-left:3px solid var(--postit);padding:8px 12px;margin:0 0 10px;border-radius:0 8px 8px 0;font-size:.93rem}
+  .olhar b{color:var(--postit)}
+  .cadeado{padding:22px 16px;text-align:center;color:var(--cinza);font-size:.9rem}
+  .perg{background:#100a1c;border:1px solid var(--borda);border-radius:12px;padding:12px;margin-top:14px}
+  .perg.red{border-color:var(--vermelho);box-shadow:0 0 0 1px var(--vermelho)}
+  .perg .tag{display:inline-block;font-size:.66rem;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;border-radius:10px;margin-bottom:6px}
+  .tag.conc{background:#0d3336;color:#bff5f7}
+  .tag.apl{background:#3a2a0c;color:#ffd99a}
+  .perg label{display:block;font-weight:600;margin-bottom:8px}
+  .perg textarea{width:100%;min-height:76px;background:#0c0818;color:var(--texto);border:1px solid var(--borda2);border-radius:8px;padding:9px;font-family:inherit;font-size:.98rem;resize:vertical}
+  .aviso{margin-top:8px;padding:9px 11px;border-radius:8px;font-size:.86rem;display:none}
+  .aviso.amarelo{display:block;background:#4a3d12;border:1px solid var(--ambar);color:#ffe9ad}
+  .aviso.vermelho{display:block;background:#4a1717;border:1px solid var(--vermelho);color:#ffc9c9}
+  .modelo{margin-top:10px;padding:10px 12px;background:#0e2b1e;border:1px solid var(--verde);border-radius:8px;font-size:.92rem;display:none}
+  .modelo.show{display:block}
+  .modelo .lab{color:#9be8bd;font-weight:bold;font-size:.78rem;text-transform:uppercase;letter-spacing:1px}
+  .chk{margin-top:10px;font-size:.88rem}
+  .chk .item{display:flex;align-items:center;gap:8px;margin:6px 0;flex-wrap:wrap}
+  .chk .item span{flex:1;min-width:180px}
+  .chk .simnao button{border:1px solid var(--borda2);background:#0c0818;color:var(--texto);border-radius:6px;padding:4px 10px;margin-left:4px;font-size:.8rem}
+  .chk .simnao button.sim.ativo{background:var(--verde);border-color:var(--verde);color:#04210f}
+  .chk .simnao button.nao.ativo{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+  .conferir{margin-top:14px;background:var(--ambar);color:#2b1d00;border:none;border-radius:10px;padding:11px 18px;font-size:1rem;font-weight:bold;width:100%}
+  .conferir:disabled{background:#2a2045;color:#8a7aa8;cursor:not-allowed}
+  .status-bloco{margin-top:10px;text-align:center;font-weight:bold;font-size:.95rem}
+  .prox{margin-top:12px;text-align:center}
+  .prox a{color:var(--ambar);text-decoration:none;font-weight:bold}
+  .peg{background:#3a1419;border:2px solid var(--vermelho);border-radius:16px;padding:16px;margin-top:20px}
+  .peg h3{color:#ffb3bb;margin-bottom:10px}
+  .peg ol{margin-left:20px}
+  .peg li{margin-bottom:7px}
+  .cobertura{background:var(--fundo2);border:1px solid var(--borda);border-radius:16px;padding:16px;margin-top:18px}
+  .cobertura h3{color:var(--ambar);margin-bottom:10px}
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  th,td{border:1px solid var(--borda);padding:7px 9px;text-align:left}
+  th{background:#2b2048}
+  .revisar{background:#3a2e06;border:2px solid var(--ambar);border-radius:16px;padding:16px;margin-top:18px}
+  .revisar h3{color:var(--ambar);margin-bottom:8px}
+  .revisar ul{margin-left:18px}
+  .relatorio{background:var(--fundo2);border:1px dashed var(--verde);border-radius:14px;padding:16px;margin-top:18px;font-size:.9rem}
+  .relatorio h3{color:var(--verde);margin-bottom:8px}
+  .trilha-fim{background:linear-gradient(120deg,#0f2a1c,#13392a);border:2px solid var(--verde);border-radius:16px;padding:18px;margin-top:18px;text-align:center}
+  .trilha-fim h3{color:#9be8bd;margin-bottom:8px}
+  .trilha-fim a.btn{display:inline-block;margin-top:8px;background:var(--verde);color:#04210f;text-decoration:none;font-weight:bold;padding:11px 20px;border-radius:10px}
+  .trilha-fim a.btn.off{background:#2a2045;color:#8a7aa8;pointer-events:none}
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:50;align-items:center;justify-content:center;padding:16px}
+  .modal-bg.show{display:flex}
+  .modal{background:var(--fundo2);border:1px solid var(--ambar);border-radius:14px;padding:20px;max-width:420px;text-align:center}
+  .modal p{margin-bottom:14px}
+  .modal button{background:var(--ambar);color:#2b1d00;border:none;border-radius:8px;padding:9px 16px;font-weight:bold}
+  .rodape{text-align:center;color:var(--cinza);font-size:.8rem;margin-top:24px}
+  .parte.adv{color:var(--ambar);border-color:var(--ambar)} .parte.ana{color:#ff9ad5;border-color:#ff9ad5}
+  .bloco.adv .num{background:var(--ambar)} .bloco.ana .num{background:#ff9ad5}
+  .bloco.adv .texto .destaque{color:var(--ambar)} .bloco.ana .texto .destaque{color:#ff9ad5}
+  .lg-adv{background:#3a2e06;color:var(--ambar)} .lg-ana{background:#3a1430;color:#ff9ad5}
+  .texto i{color:#e9ddff}
+</style>
+</head>
+<body>
+<div class="filme"></div>
+<header>
+  <div class="selo">Bazar dos Disfarces · Português 6º ano · CCF · Mensal 3</div>
+  <h1>📖 Leitura Guiada — As 11 Bancas do Bazar</h1>
+  <p>Homônimas · homógrafas · parônimas · verbos regulares e irregulares · advérbios e locuções</p>
+</header>
+<div class="filme"></div>
+<div class="wrap">
+  <nav class="barra-nav" id="nav">
+    <a class="on" href="leitura-guiada.html">📖 Leitura Guiada</a>
+    <a href="quiz.html" data-etapa="quiz">🎯 Quiz</a>
+    <a href="resumo.html" data-etapa="resumo">🗺️ Resumo</a>
+    <a href="simulado.html" data-etapa="simulado">📝 Simulado</a>
+    <a href="index.html">🏠 Início</a>
+  </nav>
+
+  <div class="intro">
+    <h2>🎭 Bem-vindo(a) ao Bazar dos Disfarces, jovem aprendiz!</h2>
+    <p>Neste bazar noturno, as palavras adoram se disfarçar: umas usam a mesma roupa e a mesma voz, outras só se parecem, os verbos trocam de máscara e os advérbios são os acessórios que mudam o sentido das frases. Cada bloco de estudo é uma <b>banca</b> do bazar. A próxima banca só abre quando você termina a anterior:</p>
+    <ol>
+      <li>Leia a banca com calma. Tudo aqui vem do seu livro de Língua Portuguesa do 6º ano (Livro 2), das páginas indicadas no comunicado da prova.</li>
+      <li>Responda as 3 perguntas <b>escrevendo</b> com as suas palavras (não vale copiar o texto).</li>
+      <li>Clique em <b>Conferir</b>: aparece a resposta-modelo e uma autoavaliação Sim/Não.</li>
+      <li>Com as 11 bancas conferidas e a autoavaliação respondida, o <b>🎯 Quiz destrava</b>.</li>
+    </ol>
+    <div class="legenda"><span class="lg-reg">👯 Bancas 1–2 · Homônimas e homógrafas</span><span class="lg-cor">🪞 3 · Parônimas</span><span class="lg-len">🎭 4–6 · Verbos</span><span class="lg-adv">💍 7–10 · Advérbios</span><span class="lg-ana">🕵️ 11 · Classes</span></div>
+  </div>
+
+  <div class="painel">
+    <span id="salvo">💾 Progresso salvo automaticamente.</span>
+    <div class="btns">
+      <button class="mini" onclick="exportar()">📥 Exportar</button>
+      <button class="mini" onclick="document.getElementById('imp').click()">📤 Importar</button>
+      <input type="file" id="imp" accept="application/json" style="display:none" onchange="importar(event)">
+      <button class="mini" onclick="pedirZerar()">🗑️ Zerar tudo</button>
+    </div>
+  </div>
+
+  <div id="blocos"></div>
+
+  <div class="peg">
+    <h3>⚠️ 10 Pegadinhas da Prova (não caia nelas!)</h3>
+    <ol>
+      <li><b>Homônimas perfeitas</b> = mesma escrita <b>e</b> mesmo som (“Eu <b>caminho</b>…” × “outro <b>caminho</b>”). <b>Homógrafas</b> = mesma escrita, mas <b>som diferente</b> (“Eu <b>jogo</b>…” × “O <b>jogo</b>…”).</li>
+      <li>Na homógrafa, a diferença de som <b>pode ou não</b> ter acento: “tacacá” × “tacaca” tem acento; “jogo” × “jogo” não tem.</li>
+      <li><b>Parônimas não são iguais</b>: são só <b>parecidas</b> na grafia e na pronúncia, e têm <b>sentidos diferentes</b> (“joga-se” × “jogasse”).</li>
+      <li><b>“-sse”</b> é <b>terminação</b> (pretérito imperfeito do subjuntivo: hipótese, desejo). <b>“-se”</b> é <b>palavra independente</b>, com hífen, que generaliza a ação nas instruções.</li>
+      <li><b>“Pôr”</b> e derivados (repor, compor, expor, transpor) são da <b>2ª conjugação</b>, porque a forma antiga é <b>“poer”</b>. Não existe “4ª conjugação”.</li>
+      <li><b>“Ser”, “estar”, “ter” e “haver”</b> são <b>irregulares</b> (mudam a forma) e muito usados como <b>auxiliares</b> em locuções verbais.</li>
+      <li>O advérbio modifica <b>verbo, adjetivo, outro advérbio</b> e até a <b>oração inteira</b> (aí, isolado por vírgula: “Lamentavelmente, …”).</li>
+      <li>O advérbio é <b>invariável</b>: se “muito” vai para o plural (“muitos bordados”), ali ele <b>não é advérbio</b>.</li>
+      <li><b>“-mente” nem sempre é modo</b>: “certamente” = afirmação, “provavelmente” = dúvida, “raramente” = tempo.</li>
+      <li><b>“Nunca”, “jamais” e “sempre”</b> indicam tempo, mas também <b>negação</b> ou <b>afirmação</b>. E <b>“meio”</b>: um pouco = advérbio; metade = numeral; modo/maneira = substantivo.</li>
+    </ol>
+  </div>
+
+  <div class="cobertura">
+    <h3>🧭 Cobertura: Tópico → Banca</h3>
+    <table>
+      <thead><tr><th>Tópico do comunicado</th><th>Onde está no livro (Livro 2)</th><th>Banca</th></tr></thead>
+      <tbody>
+        <tr><td>Homônimas perfeitas: definição, caminho × caminho, coroa, “Quem casa quer casa”, tira da “porca”</td><td>Cap. 20 · pp. 76-77 e 86</td><td>1</td></tr>
+        <tr><td>Homógrafas: definição (homo + grafia), acento ou só pronúncia, jogo × jogo, tacacá × tacaca, acordo, colher, corte, molho, sede</td><td>Cap. 21 · pp. 101-102</td><td>2</td></tr>
+        <tr><td>Parônimas: definição; -sse (pretérito imperfeito do subjuntivo) × -se (palavra independente, textos prescritivos)</td><td>Cap. 23 · pp. 141-142</td><td>3</td></tr>
+        <tr><td>Verbos: palavras variáveis; três conjugações; pôr/poer; Síntese</td><td>Cap. 20 · pp. 79 e 87</td><td>4</td></tr>
+        <tr><td>Verbos regulares × irregulares; ser, estar, ter, haver (auxiliares); tabela do verbo “ser”; bebo/corro/faço</td><td>Cap. 20 · pp. 79-80, 82 e 87</td><td>5</td></tr>
+        <tr><td>Pistas dos irregulares (presente do indicativo → presente do subjuntivo; pretérito perfeito → imperfeito e futuro do subjuntivo); locução verbal “vai virar”</td><td>Cap. 20 · pp. 82-85</td><td>6</td></tr>
+        <tr><td>Advérbio: dez classes (variáveis × invariáveis); definição; modifica verbo, adjetivo, advérbio e oração (vírgula)</td><td>Cap. 21 · pp. 103-104 · Cap. 22 · p. 123</td><td>7</td></tr>
+        <tr><td>Locuções adverbiais: preposição + substantivo/advérbio/verbo; com lentidão → lentamente</td><td>Cap. 21 · pp. 104 e 106 · Cap. 22 · pp. 123 e 126</td><td>8</td></tr>
+        <tr><td>Tipos de advérbio (tabela) e Síntese; “-mente” nem sempre é modo</td><td>Cap. 22 · pp. 124, 126 e 131</td><td>9</td></tr>
+        <tr><td>Advérbios interrogativos; nunca/jamais/sempre; posição; advérbio e opinião</td><td>Cap. 21 · pp. 105-106 · Cap. 22 · p. 125</td><td>10</td></tr>
+        <tr><td>Classe das palavras (análise morfológica no livro): adjetivo × advérbio; “meio”; “muito”</td><td>Cap. 21 · p. 104 · Cap. 22 · pp. 129-130</td><td>11</td></tr>
+        <tr><td>Análise morfológica registrada no caderno</td><td>Não está no livro: revisar pelo caderno</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="revisar" id="revisar" style="display:none">
+    <h3>🔁 Para revisar antes da prova</h3>
+    <ul id="revisar-lista"></ul>
+  </div>
+
+  <div class="relatorio">
+    <h3>📊 Resumo para os pais (desta leitura)</h3>
+    <div id="rel-conteudo">Assim que o aprendiz for conferindo as bancas, o resumo aparece aqui.</div>
+  </div>
+
+  <div class="trilha-fim" id="trilha-fim">
+    <h3>🔒 Próxima etapa: Quiz</h3>
+    <p id="trilha-fim-txt">O Quiz destrava quando as 11 bancas estiverem conferidas e a autoavaliação respondida.</p>
+    <a class="btn off" id="btn-prox" href="quiz.html">🎯 Ir para o Quiz</a>
+  </div>
+
+  <div class="rodape">Feito com carinho para o jovem aprendiz. 🎭 Boa leitura — e boa prova!</div>
+</div>
+
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <p id="modal-txt"></p>
+    <button onclick="fecharModal()" id="modal-ok">Ok</button>
+    <button class="mini" onclick="fecharModal()" id="modal-cancel" style="display:none;margin-left:8px">Cancelar</button>
+  </div>
+</div>
+
+<script>
+/* ====== TRILHA COM CADEADOS (módulo comum do kit) ====== */
+var KIT='bazar_disfarces_pt6';
+var TRILHA=[
+ {id:'leitura', chave:KIT+'_leitura_v1', nome:'Leitura Guiada', arquivo:'leitura-guiada.html', emoji:'📖'},
+ {id:'quiz', chave:KIT+'_quiz_v1', nome:'Quiz', arquivo:'quiz.html', emoji:'🎯'},
+ {id:'resumo', chave:KIT+'_resumo_v1', nome:'Resumo', arquivo:'resumo.html', emoji:'🗺️'},
+ {id:'simulado', chave:KIT+'_simulado_v1', nome:'Simulado', arquivo:'simulado.html', emoji:'📝'}
+];
+function lerJSON(k){ try{ var s=localStorage.getItem(k); return s?JSON.parse(s):null; }catch(e){ return null; } }
+function trilhaLiberada(){ var t=lerJSON(KIT+'_trilha_v1'); return !!(t&&t.liberadoPelosPais); }
+function etapaConcluida(id){ var e=TRILHA.filter(function(t){return t.id===id;})[0]; var d=lerJSON(e.chave); return !!(d&&d.concluido); }
+function podeAbrir(id){ var idx=TRILHA.map(function(t){return t.id;}).indexOf(id); if(idx<=0||trilhaLiberada()) return true; return etapaConcluida(TRILHA[idx-1].id); }
+function marcarNav(){
+  var links=document.querySelectorAll('#nav a[data-etapa]');
+  for(var i=0;i<links.length;i++){ var id=links[i].getAttribute('data-etapa'); if(!podeAbrir(id)){ links[i].classList.add('lock'); links[i].textContent='🔒 '+links[i].textContent.replace('🔒 ',''); links[i].setAttribute('title','Ainda trancado'); } else { links[i].classList.remove('lock'); links[i].textContent=links[i].textContent.replace('🔒 ',''); links[i].removeAttribute('title'); } }
+}
+
+/* ====== BANCAS (conteúdo do Callis Língua Portuguesa 6 – Livro 2, lido no P+) ====== */
+var BLOCOS = [
+ {
+  "porto": "Banca 01 · Homônimas perfeitas · p. 77",
+  "emoji": "👯",
+  "u": "reg",
+  "titulo": "As gêmeas perfeitas",
+  "texto": [
+   "Neste bazar, algumas palavras usam a mesma roupa e a mesma voz, mas por baixo do disfarce são outra coisa. O livro chama de <span class='destaque'>homônimas perfeitas</span> as palavras que têm a <b>mesma pronúncia</b> e a <b>mesma grafia</b>, mas aparecem em <b>contextos diferentes</b>, com <b>significados diferentes</b>.",
+   "Veja o exemplo do livro: em <i>“Eu <b>caminho</b> pelas ruas do meu bairro em segurança.”</i>, “caminho” é o <b>verbo caminhar</b>. Já em <i>“Não há outro <b>caminho</b> para chegar até sua casa?”</i>, “caminho” é <b>substantivo</b>. Mesma escrita, mesmo som e sentido diferente.",
+   "Como descobrir qual é qual? Pelo <b>contexto</b>: as outras palavras da frase mostram o sentido. O livro treina isso com a palavra <b>“coroa”</b>, que aparece em quatro frases com quatro sentidos diferentes.",
+   "<div class='olhar'><b>Disfarce de humor:</b> o livro abre o assunto com uma tira em que a graça está no <b>duplo sentido</b> da palavra “porca”: cada personagem entendeu um significado. As homônimas perfeitas rendem piadas e também pegadinhas de prova!</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "Explique, com as suas palavras, o que são palavras homônimas perfeitas.",
+    "modelo": "São palavras escritas do mesmo jeito e com o mesmo som, mas com significados diferentes. Quem mostra o sentido é o contexto.",
+    "chk": [
+     "Disse que a escrita (grafia) é igual?",
+     "Disse que o som (pronúncia) é igual?",
+     "Disse que o significado muda conforme o contexto?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "O livro cita o título de uma peça de teatro: “Quem casa quer casa”. A palavra “casa” tem o mesmo significado nas duas vezes? Explique o que cada uma quer dizer.",
+    "modelo": "Não. O primeiro “casa” é do verbo casar (quem se casa). O segundo é o substantivo casa, o lugar para morar. São homônimas perfeitas: mesma escrita, mesmo som e sentidos diferentes.",
+    "chk": [
+     "Disse que o primeiro “casa” é verbo (casar)?",
+     "Disse que o segundo “casa” é substantivo (moradia)?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Diga em que sentido a palavra “coroa” foi usada nestas frases do livro: “O príncipe exibiu a coroa na sacada do palácio.” e “Enfeitaram a mesa com a coroa do abacaxi.”",
+    "modelo": "Na primeira, é o enfeite que o príncipe usa na cabeça, símbolo da realeza. Na segunda, é a parte de cima do abacaxi, as folhas. A palavra é a mesma; o contexto muda o sentido.",
+    "chk": [
+     "Expliquei o sentido de “coroa” na frase do príncipe?",
+     "Expliquei o sentido de “coroa” na frase do abacaxi?"
+    ]
+   }
+  ],
+  "parte": "Ala 1 · Palavras disfarçadas — iguais ou só parecidas?"
+ },
+ {
+  "porto": "Banca 02 · Homógrafas · pp. 101-102",
+  "emoji": "🎭",
+  "u": "reg",
+  "titulo": "Mesma roupa, outra voz",
+  "texto": [
+   "Na banca vizinha, o disfarce é diferente: as palavras têm a <b>mesma grafia</b>, mas são <b>pronunciadas de forma diferente</b>, com a vogal <b>mais aberta ou mais fechada</b>. São as <span class='destaque'>homógrafas</span>. O próprio nome explica: <b>homo = mesmo</b> + <b>grafia = escrita</b>.",
+   "Essa diferença de som pode ser marcada por um <b>acento gráfico</b>, ou não: às vezes ela aparece <b>só na pronúncia</b>. Por isso, muitas vezes são o <b>contexto</b> e o <b>sentido</b> que mostram qual palavra é qual.",
+   "Exemplo do livro: <i>“Eu <b>jogo</b> capoeira desde pequeno.”</i> × <i>“O <b>jogo</b> de capoeira é muito antigo.”</i> No primeiro, “jogo” é o verbo jogar (eu jogo). No segundo, é o substantivo (o jogo). A grafia é idêntica; quem separa as duas é o contexto.",
+   "O livro mostra também um par com acento: <b>“tacacá”</b> e <b>“tacaca”</b> são homógrafas, diferenciadas pela <b>pronúncia</b> e pela <b>presença do acento gráfico</b>.",
+   "<div class='olhar'><b>Não troque os disfarces:</b> homônimas perfeitas = mesma escrita <b>e</b> mesmo som. Homógrafas = mesma escrita, mas <b>som diferente</b>.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "Qual é a diferença entre palavras homônimas perfeitas e palavras homógrafas?",
+    "modelo": "Nas duas a escrita é igual. Nas homônimas perfeitas o som também é igual; nas homógrafas o som é diferente (a vogal é mais aberta ou mais fechada).",
+    "chk": [
+     "Disse que nas duas a escrita é igual?",
+     "Disse que nas homógrafas a pronúncia é diferente?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na frase do livro “O acordo foi assinado por todos os membros da comunidade.”, a palavra “acordo” é o verbo acordar ou quer dizer entendimento? Como você descobriu?",
+    "modelo": "Quer dizer entendimento, um combinado entre as pessoas. Descobri pelo contexto: “o acordo foi assinado”, e o verbo acordar não pode ser assinado.",
+    "chk": [
+     "Respondi “entendimento”?",
+     "Justifiquei com o contexto da frase?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Em “A sede da associação fica nesta rua.”, a palavra “sede” quer dizer lugar central ou vontade de beber? Explique usando o contexto.",
+    "modelo": "Lugar central: é o lugar principal da associação. A parte “fica nesta rua” mostra que se trata de um lugar.",
+    "chk": [
+     "Respondi “lugar central”?",
+     "Usei o contexto (“fica nesta rua”) para justificar?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 03 · Parônimas · pp. 141-142",
+  "emoji": "🪞",
+  "u": "cor",
+  "titulo": "As parecidas que enganam",
+  "texto": [
+   "Cuidado: estas palavras <b>não</b> são iguais, são só parecidas. O livro chama de <span class='destaque'>parônimas</span> as palavras <b>parecidas na grafia e na pronúncia</b>. Por isso muita gente as confunde, mas elas são <b>diferentes no sentido</b> e, trocadas, atrapalham a qualidade do texto.",
+   "O exemplo do livro é <b>“joga-se”</b> × <b>“jogasse”</b>. O <b>“-sse”</b> é uma <b>terminação</b> que marca o <b>pretérito imperfeito do subjuntivo</b>. Ela indica uma <b>hipótese</b>, um <b>desejo</b> ou uma <b>possibilidade</b> de ação ligada a algo do passado, com um traço de <b>condição</b>: <i>“Se eu <b>pudesse</b>, eu lhe daria esse brinquedo.”</i>",
+   "Já o <b>“-se”</b> não é terminação: é uma <b>palavra independente</b> que se junta ao verbo. Nos <b>textos prescritivos</b> (de instruções), ele serve para <b>generalizar a ação</b>: <i>“joga-se”, “pega-se”, “busca-se”, “luta-se”</i>. Exemplo: <i>“<b>Coloca-se</b> uma bandeira no alto do mastro.”</i>",
+   "<div class='olhar'><b>Truque do bazar:</b> hipótese ou desejo → <b>-sse</b>, grudado no verbo (jogasse, pudesse). Instrução que vale para todo mundo → <b>-se</b>, separado por hífen (joga-se).</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "Por que o livro diz que “joga-se” e “jogasse” são parônimas?",
+    "modelo": "Porque são parecidas na escrita e no som (por isso são confundidas), mas têm sentidos diferentes: “jogasse” indica hipótese ou desejo, e “joga-se” generaliza a ação.",
+    "chk": [
+     "Disse que são parecidas na escrita e na pronúncia?",
+     "Disse que o sentido é diferente?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Escolha a forma certa e explique sua escolha: “Se você ______, eles deixariam você jogar.” (pede-se ou pedisse?)",
+    "modelo": "“Se você pedisse, eles deixariam você jogar.” É “-sse” porque a frase fala de uma hipótese, uma condição. É o pretérito imperfeito do subjuntivo.",
+    "chk": [
+     "Escolhi “pedisse”?",
+     "Expliquei que a frase é uma hipótese ou condição?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na instrução do livro “Tenta-se escalar o mastro e pegar a bandeira.”, o “-se” é terminação do verbo ou palavra independente? Para que ele serve nesse texto?",
+    "modelo": "É palavra independente: vem separado por hífen e não faz parte da terminação. Ele generaliza a ação, como acontece nos textos de instruções: vale para qualquer pessoa que for brincar.",
+    "chk": [
+     "Disse que é palavra independente (e não terminação)?",
+     "Disse que ele generaliza a ação, como em texto de instruções?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 04 · Conjugações · pp. 79 e 87",
+  "emoji": "🚪",
+  "u": "len",
+  "titulo": "As três portas dos verbos",
+  "texto": [
+   "Os verbos são os mestres do disfarce: mudam de forma o tempo todo. O livro define os <span class='destaque'>verbos</span> como <b>palavras variáveis</b> que se conjugam em <b>tempo, modo, número, pessoa e voz</b>.",
+   "Eles se organizam em <b>três conjugações</b>, conforme a terminação do <b>infinitivo</b>:",
+   "<ul><li>terminados em <b>-ar</b> → <b>1ª conjugação</b></li><li>terminados em <b>-er</b> → <b>2ª conjugação</b></li><li>terminados em <b>-ir</b> → <b>3ª conjugação</b></li></ul>",
+   "Atenção ao verbo <b>“pôr”</b> e aos seus derivados (<b>“repor”, “compor”, “expor”, “transpor”</b> etc.): eles pertencem à <b>2ª conjugação</b>, porque a forma antiga do verbo “pôr” é <b>“poer”</b>.",
+   "<div class='olhar'><b>Síntese do capítulo (p. 87):</b> Verbos → 1ª conjugação: -ar · 2ª conjugação: -er e pôr (e seus derivados) · 3ª conjugação: -ir.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "apl",
+    "q": "A que conjugação pertencem os verbos “estudar”, “passar” e “entrar”? Explique como você descobriu.",
+    "modelo": "1ª conjugação, porque no infinitivo eles terminam em -ar.",
+    "chk": [
+     "Respondi 1ª conjugação?",
+     "Expliquei pela terminação -ar do infinitivo?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na lista de verbos do livro aparecem “sair”, “subir” e “medir”. Em qual conjugação eles ficam? E o verbo “transpor”?",
+    "modelo": "“Sair”, “subir” e “medir” são da 3ª conjugação (terminam em -ir). “Transpor” é derivado de “pôr”, então fica na 2ª conjugação (a forma antiga de pôr é poer).",
+    "chk": [
+     "Disse que sair, subir e medir são da 3ª?",
+     "Disse que transpor é da 2ª, por causa de pôr/poer?"
+    ]
+   },
+   {
+    "tag": "conc",
+    "q": "Por que o livro diz que os verbos são palavras variáveis?",
+    "modelo": "Porque eles mudam de forma: são conjugados em tempo, modo, número, pessoa e voz.",
+    "chk": [
+     "Disse que eles mudam de forma?",
+     "Citei pelo menos dois itens (tempo, modo, número, pessoa, voz)?"
+    ]
+   }
+  ],
+  "parte": "Ala 2 · Verbos que trocam de máscara"
+ },
+ {
+  "porto": "Banca 05 · Regulares e irregulares · pp. 79-80 e 87",
+  "emoji": "🎭",
+  "u": "len",
+  "titulo": "Os verbos mascarados",
+  "texto": [
+   "Alguns verbos mantêm a cara de sempre; outros trocam de máscara. Pelo livro: se o verbo <b>mantiver a sua forma</b> na conjugação, ele é <span class='destaque'>regular</span>; se a sua <b>forma se alterar</b>, ele é <span class='destaque'>irregular</span>.",
+   "Nos regulares, o verbo mantém a forma e <b>só muda a terminação</b> para indicar cada tempo e pessoa. Nos irregulares, o verbo <b>modifica muito a sua forma</b>.",
+   "Os verbos <b>“ser”, “estar”, “ter” e “haver”</b> são muito usados como <b>verbos auxiliares</b> em <b>locuções verbais</b>. Eles <b>alteram sua forma</b> ao longo da conjugação e, por isso, são <b>irregulares</b>. Veja o verbo “ser” no modo indicativo, na tabela do livro: <i>eu sou · eu fui · eu era · eu fora · eu serei · eu seria</i>. Quantas máscaras!",
+   "O livro lembra que crianças pequenas costumam conjugar seguindo o padrão: <i>Eu bebo → Eu bebi · Eu corro → Eu corri · Eu faço → ?</i> Os irregulares <b>não seguem a conjugação padrão</b>, por isso pedem mais atenção. Na dúvida, consulte uma <b>gramática</b> ou um livro de <b>conjugações verbais</b>.",
+   "<div class='olhar'><b>Síntese (p. 87):</b> Regulares → seguem uma conjugação padrão, sem alterações. Irregulares → alteram-se ao longo das conjugações. Exemplos: “ser”, “estar”, “ter” e “haver”.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "Qual é a diferença entre verbo regular e verbo irregular?",
+    "modelo": "O regular mantém a forma e só troca a terminação para indicar tempo e pessoa. O irregular muda a sua forma quando é conjugado.",
+    "chk": [
+     "Disse que o regular mantém a forma?",
+     "Disse que o irregular muda a forma?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na tabela do livro, o verbo “ser” aparece como “que eu seja”, “se eu fosse” e “quando eu for”. Isso mostra que ele é regular ou irregular? Por quê?",
+    "modelo": "Irregular: de “seja” para “fosse” e para “for” a forma muda muito, não é só a terminação que troca.",
+    "chk": [
+     "Respondi irregular?",
+     "Justifiquei mostrando que a forma muda muito?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na sequência do livro “Eu bebo → Eu bebi · Eu corro → Eu corri · Eu faço → ?”, por que uma criança pequena pode errar o último? O que isso mostra sobre o verbo “fazer”?",
+    "modelo": "Porque ela tenta seguir o mesmo padrão dos outros verbos. Mas “fazer” é irregular: não segue a conjugação padrão e muda a forma. Por isso pede atenção (e uma consulta à gramática na dúvida).",
+    "chk": [
+     "Disse que “fazer” é irregular?",
+     "Expliquei que o irregular não segue o padrão (por isso a criança erra)?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 06 · Pistas dos irregulares · pp. 82-85",
+  "emoji": "🔍",
+  "u": "len",
+  "titulo": "Oficina das máscaras",
+  "texto": [
+   "O livro dá duas pistas para acertar a máscara dos verbos irregulares.",
+   "<b>Pista 1:</b> o <b>presente do indicativo</b> serve de modelo para o <b>presente do subjuntivo</b>. Veja o verbo “valer”: <i>Eu <b>valho</b> → que eu <b>valha</b>, que tu valhas, que ele valha, que nós valhamos, que vós valhais, que eles valham.</i>",
+   "<b>Pista 2:</b> o <b>pretérito perfeito</b> serve de base para o <b>imperfeito</b> e o <b>futuro do subjuntivo</b>. Veja o verbo “ver”: <i>Eles <b>viram</b> → se eles <b>vissem</b> → quando eles <b>virem</b>.</i>",
+   "O livro também mostra uma <b>locução verbal</b> num slogan: <i>“Desta vez, seu sonho da casa própria <b>vai virar</b> realidade.”</i> Ali, a locução verbal é <b>“vai virar”</b>.",
+   "<div class='olhar'><b>Lista do livro de verbos irregulares para pesquisar:</b> dar, passear, odiar, ver, caber, fazer, dizer, ir, poder, querer, saber, trazer, possuir, sair, subir, seguir, vir, valer, medir.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "apl",
+    "q": "Use a Pista 1: o livro mostra “Caber → Eu caibo”. Como fica “que eu ___” no presente do subjuntivo? Agora complete a frase do livro: “Espero que as prestações da casa ______ no seu orçamento.”",
+    "modelo": "Que eu caiba. A frase fica: “Espero que as prestações da casa caibam no seu orçamento.”",
+    "chk": [
+     "Escrevi “caiba”?",
+     "Completei a frase com “caibam”?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Use a Pista 2: o livro mostra “Fazer → Eles fizeram”. Como ficam “se eles ___” e “quando eles ___”?",
+    "modelo": "Se eles fizessem; quando eles fizerem.",
+    "chk": [
+     "Escrevi “fizessem”?",
+     "Escrevi “fizerem”?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "O livro mostra “Pôr → Eu ponho” e “Vir → Eu venho”. Usando a Pista 1, como fica “que eu ___” para cada um?",
+    "modelo": "Que eu ponha; que eu venha.",
+    "chk": [
+     "Escrevi “ponha”?",
+     "Escrevi “venha”?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 07 · O que é advérbio · pp. 103-104 e 123",
+  "emoji": "💍",
+  "u": "adv",
+  "titulo": "O acessório que muda tudo",
+  "texto": [
+   "Hora de conhecer o acessório mais usado do bazar. O livro lembra que a língua portuguesa tem <b>dez classes gramaticais</b>: as <b>variáveis</b> mudam de forma (substantivos, artigos, adjetivos, verbos, pronomes e numerais) e as <b>invariáveis</b> não mudam de forma (<b>advérbios</b>, preposições, conjunções e interjeições).",
+   "O <span class='destaque'>advérbio</span> é a palavra que se junta a um <b>verbo</b>, a um <b>adjetivo</b> ou até a <b>outro advérbio</b> para <b>modificar o sentido</b> deles. Exemplo do livro: <i>O garoto corre <b>velozmente</b> (como) · <b>aqui</b> (onde) · <b>muito</b> (quanto).</i>",
+   "Normalmente, o advérbio indica as <b>circunstâncias</b> em que a ação aconteceu, <b>ampliando o sentido</b> e acrescentando informações. Ele também pode modificar: um <b>adjetivo</b> (<i>“Essa garota é <b>muito</b> bonita”</i>), <b>outro advérbio</b> (<i>“Todos sabem que ela dança <b>muito</b> bem”</i>) ou uma <b>oração inteira</b>. Nesse último caso, é bom isolar o advérbio com <b>vírgula</b>: <i>“<b>Lamentavelmente</b>, a garota hoje não dançou bem.”</i>",
+   "Mais um detalhe do livro: a <b>presença ou ausência</b> do advérbio <b>não compromete a estrutura</b> da oração, mas <b>modifica o sentido</b> da frase e amplia suas informações."
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "O advérbio modifica o sentido de quais tipos de palavra? E por que ele é chamado de invariável?",
+    "modelo": "De um verbo, de um adjetivo ou de outro advérbio (e até de uma oração inteira). Ele é invariável porque não muda de forma: não vai para o feminino nem para o plural.",
+    "chk": [
+     "Citei verbo, adjetivo e outro advérbio?",
+     "Expliquei que invariável quer dizer que não muda de forma?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na frase do livro “A vaca está perto.”, o que a palavra “perto” indica? Se a frase fosse para o plural (as vacas), “perto” mudaria?",
+    "modelo": "Indica lugar (onde a vaca está). Não mudaria: “As vacas estão perto.” Ela é invariável porque é advérbio.",
+    "chk": [
+     "Disse que indica lugar?",
+     "Disse que “perto” não muda no plural?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na frase do livro “O céu é tão lindo e a noite é tão boa.”, que palavra é advérbio? Ela modifica um verbo, um adjetivo ou outro advérbio?",
+    "modelo": "“Tão”, que aparece duas vezes. Ela modifica os adjetivos “lindo” e “boa”, aumentando a intensidade deles.",
+    "chk": [
+     "Encontrei o advérbio “tão”?",
+     "Disse que ele modifica adjetivos (lindo, boa)?"
+    ]
+   }
+  ],
+  "parte": "Ala 3 · Advérbios, os acessórios das frases"
+ },
+ {
+  "porto": "Banca 08 · Locuções adverbiais · pp. 104, 106, 123 e 126",
+  "emoji": "🧣",
+  "u": "adv",
+  "titulo": "Acessórios em dupla",
+  "texto": [
+   "Às vezes o advérbio vem <b>sozinho</b>, numa palavra única (“aqui”, “lá”, “muito”, “pouco”). Outras vezes, <b>duas ou mais palavras se juntam</b> para fazer o papel do advérbio, ampliando o sentido. Aí temos uma <span class='destaque'>locução adverbial</span>.",
+   "Exemplo do livro: <i>Os garotos correm <b>com vontade</b> (como) → preposição + substantivo · <b>por aqui</b> (onde) → preposição + advérbio · <b>sem parar</b> (quanto) → preposição + verbo.</i> Repare: “vontade” e “parar” <b>não são advérbios</b>, mas, nessas frases, junto com uma preposição, fazem o papel de advérbio.",
+   "Muitas locuções podem ser trocadas por um advérbio de uma palavra só. O livro dá o exemplo: a locução <b>“com lentidão”</b> pode ser trocada, sem prejuízo de sentido, pelo advérbio <b>“lentamente”</b>.",
+   "<div class='olhar'><b>Dica de detetive:</b> nos exemplos do livro, a locução adverbial <b>começa com preposição</b>: com vontade, por aqui, sem parar, com lentidão.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "conc",
+    "q": "O que é uma locução adverbial?",
+    "modelo": "São duas ou mais palavras que, juntas, fazem o papel de um advérbio (ampliam o sentido), como “com vontade” ou “sem parar”.",
+    "chk": [
+     "Disse que são duas ou mais palavras?",
+     "Disse que elas fazem o papel (a função) de advérbio?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Na frase do livro “Além da pipoca, sem dúvida uma unanimidade nacional.”, qual é a locução adverbial? Por qual advérbio de uma palavra só ela poderia ser trocada?",
+    "modelo": "“Sem dúvida” (preposição + substantivo). Pode ser trocada por “certamente”, um advérbio de afirmação.",
+    "chk": [
+     "Encontrei “sem dúvida”?",
+     "Troquei por um advérbio de afirmação, como “certamente”?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Troque a locução destacada por um advérbio de uma palavra só, nestas frases do livro: “Visto com cuidado o meu figurino.” e “Subirei naquele palco com tranquilidade.”",
+    "modelo": "“Visto cuidadosamente o meu figurino.” e “Subirei naquele palco tranquilamente.” As duas indicam modo, como “com lentidão” → “lentamente”.",
+    "chk": [
+     "Troquei “com cuidado” por “cuidadosamente”?",
+     "Troquei “com tranquilidade” por “tranquilamente”?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 09 · Tipos de advérbio · pp. 124, 126 e 131",
+  "emoji": "🏷️",
+  "u": "adv",
+  "titulo": "A vitrine dos tipos",
+  "texto": [
+   "Os advérbios se <b>classificam de acordo com a circunstância</b> que expressam. São muitas possibilidades, mas o livro mostra os <b>tipos mais comuns</b> (advérbio · locução adverbial):",
+   "<ul><li><b>Afirmação:</b> sim, decerto, certamente, realmente, incontestavelmente, efetivamente · com certeza, por certo, sem dúvida, de fato</li><li><b>Dúvida:</b> talvez, acaso, porventura, quiçá, possivelmente, provavelmente · por certo (provavelmente)</li><li><b>Negação:</b> não, tampouco, nem, nunca, jamais · de forma alguma, de jeito algum, de modo algum</li><li><b>Intensidade:</b> bastante, bem, demais, mais, menos, apenas, pouco, assaz, quanto, tanto, tão, meio · de muito, de pouco, em excesso, por completo, em demasia</li><li><b>Modo:</b> assim, mal, bem, depressa, devagar, pior, melhor, alerta, suavemente, lentamente · às claras, às cegas, à toa, à vontade, às pressas, a pé, ao léu, de cor</li><li><b>Lugar:</b> abaixo, acima, adiante, além, aqui, ali, aquém, atrás, acolá, dentro, fora, longe, perto, junto, detrás, defronte · à direita, à esquerda, ao lado, ao longe, de perto, por aqui, para onde, por dentro</li><li><b>Tempo:</b> hoje, ontem, amanhã, agora, depois, antes, já, anteontem, sempre, nunca, tarde, jamais, outrora, raramente · à noite, à tarde, de súbito, de repente, vez por outra, hoje em dia</li></ul>",
+   "Na <b>Síntese</b> do capítulo (p. 131), os advérbios podem ser de: <b>afirmação ou negação, tempo, lugar, modo, dúvida, intensidade e interrogação</b>.",
+   "<div class='olhar'><b>Pegadinha do “-mente”:</b> o livro avisa que é comum o advérbio terminado em “-mente” expressar <b>modo</b>, mas essa <b>não é a sua única função</b>. Na tabela, “lentamente” é modo, mas “certamente” é afirmação.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "apl",
+    "q": "No trecho do livro “Eu sempre quis ser a ‘Miss’ da Festa Junina. Lá na minha escola, tinha uma rifa […] Desse jeito, eu não tinha a mínima chance...”, classifique os advérbios “sempre”, “lá” e “não”.",
+    "modelo": "“Sempre”: tempo. “Lá”: lugar. “Não”: negação.",
+    "chk": [
+     "Classifiquei “sempre” como tempo?",
+     "Classifiquei “lá” como lugar?",
+     "Classifiquei “não” como negação?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Classifique os advérbios terminados em “-mente” destas frases do livro e explique por que eles não indicam modo: “Provavelmente, o salão estará lotado.” e “Raramente faltam peças no cenário desse grupo.”",
+    "modelo": "“Provavelmente” indica dúvida e “raramente” indica tempo (estão nessas linhas da tabela). Terminam em “-mente”, mas não dizem como a ação acontece.",
+    "chk": [
+     "Disse que “provavelmente” é de dúvida?",
+     "Disse que “raramente” é de tempo?"
+    ]
+   },
+   {
+    "tag": "conc",
+    "q": "Por que dizemos que a classificação do advérbio depende da circunstância? Use “com certeza” e “de repente” para explicar.",
+    "modelo": "Porque cada advérbio ou locução indica uma circunstância diferente. “Com certeza” indica afirmação e “de repente” indica tempo, por isso têm classificações diferentes.",
+    "chk": [
+     "Disse que a classificação depende da circunstância que ele expressa?",
+     "Classifiquei “com certeza” (afirmação) e “de repente” (tempo)?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 10 · Advérbios interrogativos · pp. 105, 106 e 125",
+  "emoji": "❓",
+  "u": "adv",
+  "titulo": "A banca das perguntas",
+  "texto": [
+   "Há advérbios que servem para <b>fazer perguntas</b> sobre a ação: são os <span class='destaque'>advérbios interrogativos</span>. Pelo livro, as palavras “onde”, “quando”, “como”, “por que”, “para que”, entre outras, usadas em frases interrogativas (diretas e indiretas) e expressando lugar, tempo, modo, causa ou finalidade, são advérbios interrogativos.",
+   "Exemplos do livro: <i><b>Onde</b> está meu pião? (lugar) · <b>Quando</b> você jogou peteca pela última vez? (tempo) · <b>Como</b> você encontrou meu caderno? (modo) · <b>Por que</b> você não quis pular corda? (causa) · <b>Para que</b> está guardando essa espiga de milho? (finalidade) · <b>Quanto</b> você gosta dessa boneca de pano? (intensidade)</i>",
+   "Alguns advérbios usam <b>mais de um disfarce</b>: <b>“nunca”, “jamais” e “sempre”</b>, além de indicarem <b>tempo</b>, podem também indicar <b>negação</b> ou <b>afirmação</b>. Para a pergunta <i>“Você frequenta festas populares?”</i>, o livro mostra as respostas “Sempre” e “Nunca”.",
+   "E a <b>posição</b> também conta: dependendo de onde for colocado, o advérbio pode gerar <b>sentidos diferentes</b>.",
+   "<div class='olhar'><b>Cuidado com a opinião:</b> em textos como notícias e relatórios científicos, que não expressam a opinião de quem escreve, o advérbio pode revelar o <b>posicionamento do autor</b>, e nem sempre isso é desejável.</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "apl",
+    "q": "Formule uma pergunta com advérbio interrogativo que tenha como resposta a frase do livro “Lá tem festa junina.” Que circunstância o advérbio da sua pergunta indica?",
+    "modelo": "Ex.: “Onde tem festa junina?” O advérbio “onde” indica lugar.",
+    "chk": [
+     "Fiz uma pergunta com “onde”?",
+     "Disse que indica lugar?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Formule uma pergunta com advérbio interrogativo que tenha como resposta a frase do livro “A gente ria de não se aguentar em pé.” (o livro diz que ela indica modo).",
+    "modelo": "Ex.: “Como vocês riam?” O advérbio “como” indica modo.",
+    "chk": [
+     "Fiz uma pergunta com “como”?",
+     "Disse que indica modo?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Se alguém responde “Nunca” à pergunta “Você frequenta festas populares?”, o advérbio indica só tempo ou também outra circunstância? Explique.",
+    "modelo": "Além de tempo, “nunca” indica negação: a pessoa está dizendo que não frequenta festas populares.",
+    "chk": [
+     "Disse que “nunca” indica negação?",
+     "Expliquei que além de tempo ele nega (a pessoa não frequenta)?"
+    ]
+   }
+  ]
+ },
+ {
+  "porto": "Banca 11 · Qual é a classe? · pp. 104, 129-130",
+  "emoji": "🕵️",
+  "u": "ana",
+  "titulo": "Detetive de classes (análise das palavras)",
+  "texto": [
+   "Para fechar o bazar, um desafio de detetive: descobrir a <b>classe</b> de uma palavra olhando o papel dela na frase. É isso que o livro pede quando pergunta “como esse termo se classifica <b>morfologicamente</b>?”. E a mesma palavra pode <b>trocar de classe</b> conforme o contexto.",
+   "<b>Adjetivo ou advérbio?</b> Compare as frases do livro: <i>“Os dançarinos <b>animados</b> cantavam a canção.”</i> × <i>“Os dançarinos <b>animadamente</b> cantavam a canção.”</i> “Animados” é <b>adjetivo</b>: caracteriza os dançarinos. “Animadamente” é <b>advérbio</b>: diz <b>como</b> eles cantavam.",
+   "<b>A palavra “meio”</b> tem três disfarces no livro: <b>meio = um pouco = advérbio (invariável)</b> · <b>meio = metade = numeral (variável)</b> · <b>meio = modo, maneira = substantivo (variável)</b>. Exemplos: <i>“O coronel ficou <b>meio</b> irritado com a resposta do boi.”</i> (um pouco → advérbio) e <i>“O coronel daria um sertão e <b>meio</b> para desbancar aquele boi.”</i> (metade → numeral).",
+   "<b>O teste do plural:</b> como o advérbio é <b>invariável</b>, se uma palavra muda para o plural na frase, ali ela <b>não</b> está fazendo papel de advérbio. O livro usa esse teste com a palavra “muito”.",
+   "<div class='olhar'><b>Atenção — análise morfológica do caderno:</b> o comunicado diz que esse conteúdo foi <b>registrado no caderno</b>. Esta banca traz só o que o <b>livro</b> mostra sobre classes de palavras. Revise também o seu caderno!</div>"
+  ],
+  "perguntas": [
+   {
+    "tag": "apl",
+    "q": "Nas frases do livro “Os passos da dança pareciam suaves no salão.” e “Os passos da dança suavemente conquistavam o salão.”, classifique “suaves” e “suavemente” e explique como você decidiu.",
+    "modelo": "“Suaves” é adjetivo: caracteriza os passos. “Suavemente” é advérbio: indica o modo como os passos conquistavam o salão.",
+    "chk": [
+     "Classifiquei “suaves” como adjetivo?",
+     "Classifiquei “suavemente” como advérbio (de modo)?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Classifique a palavra “meio” nestas frases do livro: “Eu estava meio ansiosa para ouvir a apresentação musical.” e “O único meio de fazê-lo se apresentar foi trazendo sua mãe.”",
+    "modelo": "Na primeira, “meio” = um pouco → advérbio. Na segunda, “meio” = modo, maneira → substantivo.",
+    "chk": [
+     "Disse que o primeiro “meio” é advérbio (um pouco)?",
+     "Disse que o segundo “meio” é substantivo (modo, maneira)?"
+    ]
+   },
+   {
+    "tag": "apl",
+    "q": "Passe para o plural as palavras “manto” e “bordado” nas frases do livro “O boi tinha um manto com muito bordado.” e “O manto do boi era muito bordado.”. Em qual frase “muito” também variou? Nessa frase ele é advérbio?",
+    "modelo": "“O boi tinha mantos com muitos bordados.” e “Os mantos do boi eram muito bordados.” “Muito” variou na primeira frase (muitos), então ali ele não é advérbio. Na segunda, não variou: é advérbio, modificando “bordados”.",
+    "chk": [
+     "Disse que “muito” variou na primeira frase (muitos)?",
+     "Concluí que, quando varia, ele não é advérbio?"
+    ]
+   }
+  ],
+  "parte": "Ala 4 · Detetive de classes"
+ }
+];
+
+/* ====== ESTADO E PERSISTÊNCIA ====== */
+var CHAVE=KIT+'_leitura_v1';
+var mem={};
+var estado=carregar();
+
+function carregar(){
+  try{ var s=localStorage.getItem(CHAVE); if(s) return JSON.parse(s); }catch(e){ if(mem[CHAVE]) return JSON.parse(mem[CHAVE]); }
+  return {blocos:{}};
+}
+function calcProgresso(){
+  var conf=0, chkPend=0;
+  BLOCOS.forEach(function(bloco,i){
+    var b=estado.blocos[i]; if(!b||!b.conferido) return; conf++;
+    bloco.perguntas.forEach(function(p,j){ var ep=(b.perguntas&&b.perguntas[j])||{chk:{}}; p.chk.forEach(function(pt,k){ if(!ep.chk||!ep.chk[k]) chkPend++; }); });
+  });
+  estado.progresso={conferidos:conf,total:BLOCOS.length,chkPendentes:chkPend};
+  if(conf===BLOCOS.length && chkPend===0){ if(!estado.concluido){ estado.concluido=true; estado.concluidoEm=new Date().toISOString(); } }
+  return estado.progresso;
+}
+function salvar(){
+  calcProgresso();
+  var s=JSON.stringify(estado);
+  try{ localStorage.setItem(CHAVE,s); }catch(e){ mem[CHAVE]=s; }
+  var d=new Date();
+  document.getElementById('salvo').textContent='💾 Salvo às '+d.toLocaleTimeString('pt-BR')+' de '+d.toLocaleDateString('pt-BR');
+  atualizarTrilhaFim();
+}
+function atualizarTrilhaFim(){
+  var p=estado.progresso||calcProgresso();
+  var box=document.getElementById('trilha-fim'), txt=document.getElementById('trilha-fim-txt'), btn=document.getElementById('btn-prox');
+  var h3=box.querySelector('h3');
+  if(estado.concluido||trilhaLiberada()){
+    h3.textContent='✅ Leitura concluída — Quiz destravado!';
+    txt.textContent=estado.concluido?'Você conferiu os '+BLOCOS.length+' bancas e respondeu a autoavaliação. Agora teste o que aprendeu.':'Trilha liberada pelos pais.';
+    btn.classList.remove('off');
+  } else {
+    h3.textContent='🔒 Próxima etapa: Quiz';
+    var faltam=p.total-p.conferidos;
+    txt.textContent=faltam>0 ? 'Destrava quando você conferir os '+p.total+' bancas (faltam '+faltam+').' : 'Falta responder a autoavaliação Sim/Não de '+p.chkPendentes+' ponto(s) para destravar.';
+    btn.classList.add('off');
+  }
+  marcarNav();
+}
+function estBloco(i){ if(!estado.blocos[i]) estado.blocos[i]={aberto:i===0,conferido:false,perguntas:{}}; return estado.blocos[i]; }
+function estPerg(i,j){ var b=estBloco(i); if(!b.perguntas[j]) b.perguntas[j]={resp:'',warned:false,red:false,tentou:'',chk:{}}; return b.perguntas[j]; }
+
+/* ====== ANTICÓPIA (motor validado — copiado do kit Varal de Cordel, 6º CCF) ====== */
+function normPal(s){
+  return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/<[^>]*>/g,' ').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim().split(' ').filter(Boolean);
+}
+function maiorRun(aw,bw){
+  var bStr=' '+bw.join(' ')+' ', best=0;
+  for(var i=0;i<aw.length;i++){
+    for(var len=aw.length-i; len>0; len--){
+      var sub=aw.slice(i,i+len).join(' ');
+      if(bStr.indexOf(' '+sub+' ')>=0){ if(len>best)best=len; break; }
+    }
+  }
+  return best;
+}
+function cobertoPorRuns(aw,bw,minRun){
+  var bStr=' '+bw.join(' ')+' ', cov=new Array(aw.length).fill(false);
+  for(var i=0;i<aw.length;i++){
+    for(var len=aw.length-i; len>=minRun; len--){
+      var sub=aw.slice(i,i+len).join(' ');
+      if(bStr.indexOf(' '+sub+' ')>=0){ for(var k=i;k<i+len;k++)cov[k]=true; break; }
+    }
+  }
+  return cov.filter(Boolean).length;
+}
+function ehCopia(resp, textoBloco, pergunta){
+  var a=normPal(resp), src=normPal(textoBloco), q=normPal(pergunta);
+  if(a.length<5) return false;
+  var qStr=' '+q.join(' ')+' ', keep=new Array(a.length).fill(true);
+  for(var i=0;i<a.length;i++){
+    for(var len=a.length-i; len>=4; len--){
+      var sub=a.slice(i,i+len).join(' ');
+      if(qStr.indexOf(' '+sub+' ')>=0){ for(var k=i;k<i+len;k++)keep[k]=false; break; }
+    }
+  }
+  var af=a.filter(function(w,idx){return keep[idx];});
+  if(af.length<5) return false;
+  var run=maiorRun(af,src);
+  var cov=cobertoPorRuns(af,src,5);
+  var ratio=cov/af.length;
+  return run>=8 || ratio>0.6;
+}
+
+/* ====== RENDER ====== */
+function textoPlano(bloco){ return bloco.texto.join(' '); }
+function irBloco(i){ var el=document.getElementById('bloco'+i); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+
+function render(){
+  var cont=document.getElementById('blocos'); cont.innerHTML='';
+  BLOCOS.forEach(function(bloco,i){
+    var b=estBloco(i);
+    if(bloco.parte){ var pt=document.createElement('div'); pt.className='parte '+bloco.u; pt.textContent='🎭 '+bloco.parte; cont.appendChild(pt); }
+    var div=document.createElement('div'); div.className='bloco '+bloco.u+(b.aberto?'':' travado'); div.id='bloco'+i;
+    var html='<div class="bloco-cab"><div class="num">'+(i+1)+'</div><div><div class="porto">'+bloco.porto+'</div><h3>'+bloco.emoji+' '+bloco.titulo+'</h3></div></div>';
+    if(!b.aberto){
+      html+='<div class="cadeado">🔒 Esta banca abre quando você conferir a banca anterior.</div>';
+      div.innerHTML=html; cont.appendChild(div); return;
+    }
+    html+='<div class="bloco-corpo"><div class="texto">';
+    bloco.texto.forEach(function(p){ html+= (p.indexOf('<div')===0 || p.indexOf('<ul')===0 ? p : '<p>'+p+'</p>'); });
+    html+='</div>';
+    bloco.perguntas.forEach(function(p,j){
+      var ep=estPerg(i,j);
+      var tagTxt=p.tag==='conc'?'Conceito':'Aplicação';
+      html+='<div class="perg'+(ep.red?' red':'')+'" id="perg'+i+'_'+j+'">';
+      html+='<span class="tag '+p.tag+'">'+tagTxt+'</span>';
+      html+='<label>'+(j+1)+'. '+p.q+'</label>';
+      html+='<textarea id="ta'+i+'_'+j+'" oninput="digitou('+i+','+j+')">'+(ep.resp||'').replace(/</g,'&lt;')+'</textarea>';
+      html+='<div class="aviso" id="av'+i+'_'+j+'"></div>';
+      html+='<div class="modelo" id="mod'+i+'_'+j+'"><span class="lab">Resposta-modelo</span><p>'+p.modelo+'</p>';
+      html+='<div class="chk" id="chk'+i+'_'+j+'"></div></div>';
+      html+='</div>';
+    });
+    html+='<button class="conferir" id="conf'+i+'" onclick="conferir('+i+')">✔️ Conferir esta banca</button>';
+    html+='<div class="status-bloco" id="st'+i+'"></div>';
+    if(i<BLOCOS.length-1){ html+='<div class="prox" id="px'+i+'"></div>'; }
+    html+='</div>';
+    div.innerHTML=html;
+    cont.appendChild(div);
+  });
+  BLOCOS.forEach(function(bloco,i){
+    var b=estBloco(i);
+    if(b.aberto && b.conferido){ mostrarConferido(i); }
+    atualizarBotao(i);
+  });
+  atualizarRelatorio();
+  atualizarTrilhaFim();
+}
+
+function digitou(i,j){
+  var ep=estPerg(i,j);
+  ep.resp=document.getElementById('ta'+i+'_'+j).value;
+  if(ep.red){
+    var bloco=BLOCOS[i];
+    if(!ehCopia(ep.resp, textoPlano(bloco), bloco.perguntas[j].q)){
+      ep.red=false;
+      var pd=document.getElementById('perg'+i+'_'+j); if(pd) pd.classList.remove('red');
+      var av=document.getElementById('av'+i+'_'+j); if(av){av.className='aviso'; av.textContent='';}
+    }
+  }
+  atualizarBotao(i);
+  salvar();
+  atualizarRelatorio();
+}
+
+function atualizarBotao(i){
+  var b=estBloco(i); if(!b.aberto) return;
+  var btn=document.getElementById('conf'+i); if(!btn) return;
+  if(b.conferido){ btn.textContent='✔️ Banca conferida'; btn.disabled=true; return; }
+  var todas=true;
+  BLOCOS[i].perguntas.forEach(function(p,j){
+    var v=(document.getElementById('ta'+i+'_'+j)||{}).value||estPerg(i,j).resp||'';
+    if(v.trim().length<3) todas=false;
+  });
+  btn.disabled=!todas;
+}
+
+function conferir(i){
+  var bloco=BLOCOS[i], b=estBloco(i);
+  var algumBloqueado=false;
+  bloco.perguntas.forEach(function(p,j){
+    var ep=estPerg(i,j);
+    ep.resp=document.getElementById('ta'+i+'_'+j).value;
+    var av=document.getElementById('av'+i+'_'+j);
+    var copia=ehCopia(ep.resp, textoPlano(bloco), p.q);
+    if(copia){
+      if(!ep.warned || ep.resp===ep.tentou){
+        if(!ep.warned){ ep.warned=true; ep.tentou=ep.resp; }
+        av.className='aviso amarelo';
+        av.innerHTML='✋ Boa parte da sua resposta está igual ao texto. Tente <b>reescrever com as suas palavras</b> — explique como se fosse para um amigo, sem olhar o texto. Pode ficar mais curto e simples: o que vale é ser <b>SEU</b>.';
+        algumBloqueado=true;
+      } else {
+        ep.red=true;
+        av.className='aviso vermelho';
+        av.innerHTML='🔴 Esta resposta continua muito parecida com o texto. Ela foi aceita, mas ficou marcada para revisar. Se reescrever com as suas palavras, a marca some.';
+        document.getElementById('perg'+i+'_'+j).classList.add('red');
+      }
+    } else {
+      ep.red=false;
+      if(av){ av.className='aviso'; av.textContent=''; }
+      var pd=document.getElementById('perg'+i+'_'+j); if(pd) pd.classList.remove('red');
+    }
+  });
+  salvar();
+  if(algumBloqueado){
+    document.getElementById('st'+i).innerHTML='<span style="color:var(--ambar)">✍️ Reescreva as respostas marcadas em amarelo (mude o que escreveu) e clique em Conferir de novo.</span>';
+    return;
+  }
+  b.conferido=true;
+  if(i<BLOCOS.length-1){ estBloco(i+1).aberto=true; }
+  salvar();
+  render();
+  var alvo=document.getElementById('bloco'+i);
+  if(alvo) alvo.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function mostrarConferido(i){
+  var bloco=BLOCOS[i];
+  bloco.perguntas.forEach(function(p,j){
+    var ep=estPerg(i,j);
+    var mod=document.getElementById('mod'+i+'_'+j); if(mod) mod.classList.add('show');
+    if(ep.red){ var pd=document.getElementById('perg'+i+'_'+j); if(pd) pd.classList.add('red');
+      var av=document.getElementById('av'+i+'_'+j); if(av){av.className='aviso vermelho'; av.innerHTML='🔴 Resposta marcada para revisar (muito parecida com o texto). Reescreva com as suas palavras para tirar a marca.';}
+    }
+    var chk=document.getElementById('chk'+i+'_'+j); if(chk){
+      var h='<b style="font-size:.8rem;color:#8fe8c0">Confira você: a sua resposta…</b>';
+      p.chk.forEach(function(pt,k){
+        var val=ep.chk[k]||'';
+        h+='<div class="item"><span>'+pt+'</span><span class="simnao">'
+         +'<button class="sim'+(val==='sim'?' ativo':'')+'" onclick="marcarChk('+i+','+j+','+k+',\'sim\')">Sim</button>'
+         +'<button class="nao'+(val==='nao'?' ativo':'')+'" onclick="marcarChk('+i+','+j+','+k+',\'nao\')">Não</button>'
+         +'</span></div>';
+      });
+      chk.innerHTML=h;
+    }
+  });
+  atualizarStatusBloco(i);
+  var btn=document.getElementById('conf'+i); if(btn){ btn.textContent='✔️ Banca conferida'; btn.disabled=true; }
+  if(i<BLOCOS.length-1){
+    var px=document.getElementById('px'+i);
+    if(px) px.innerHTML='<a href="#bloco'+(i+1)+'" onclick="irBloco('+(i+1)+');return false;">➡️ Ir para a próxima banca</a>';
+  }
+}
+
+function marcarChk(i,j,k,val){
+  var ep=estPerg(i,j); ep.chk[k]=val;
+  salvar(); mostrarConferido(i); atualizarStatusBloco(i); atualizarRelatorio();
+}
+
+function statusPergunta(i,j){
+  var ep=estPerg(i,j), p=BLOCOS[i].perguntas[j];
+  if(ep.red) return 'revisar';
+  var temNao=false, todasResp=true;
+  p.chk.forEach(function(pt,k){ if(ep.chk[k]==='nao') temNao=true; if(!ep.chk[k]) todasResp=false; });
+  if(temNao) return 'revisar';
+  if(!todasResp) return 'pendente';
+  return 'ok';
+}
+function atualizarStatusBloco(i){
+  var st=document.getElementById('st'+i); if(!st) return;
+  var revisar=false, pendente=false;
+  BLOCOS[i].perguntas.forEach(function(p,j){ var s=statusPergunta(i,j); if(s==='revisar')revisar=true; if(s==='pendente')pendente=true; });
+  if(revisar) st.innerHTML='<span style="color:#ffb3b3">🔁 Esta banca tem pontos para revisar.</span>';
+  else if(pendente) st.innerHTML='<span style="color:var(--ambar)">📝 Responda a autoavaliação (Sim/Não) de cada pergunta.</span>';
+  else st.innerHTML='<span style="color:#8fe8c0">✅ Banca concluída com sucesso!</span>';
+  atualizarRelatorio();
+}
+
+function atualizarRelatorio(){
+  var lista=[], totalConf=0, totalRed=0, totalNao=0;
+  BLOCOS.forEach(function(bloco,i){
+    var b=estBloco(i); if(!b.conferido) return; totalConf++;
+    bloco.perguntas.forEach(function(p,j){
+      var ep=estPerg(i,j);
+      if(ep.red){ totalRed++; lista.push('Banca '+(i+1)+' ('+bloco.titulo+'): pergunta '+(j+1)+' — resposta muito parecida com o texto.'); }
+      p.chk.forEach(function(pt,k){ if(ep.chk[k]==='nao'){ totalNao++; lista.push('Banca '+(i+1)+' ('+bloco.titulo+'): revisar — "'+pt+'"'); } });
+    });
+  });
+  var rev=document.getElementById('revisar'), rl=document.getElementById('revisar-lista');
+  if(lista.length){ rev.style.display='block'; rl.innerHTML=lista.map(function(x){return '<li>'+x+'</li>';}).join(''); }
+  else { rev.style.display='none'; rl.innerHTML=''; }
+  var rc=document.getElementById('rel-conteudo');
+  rc.innerHTML='<b>Bancas conferidas:</b> '+totalConf+' de '+BLOCOS.length+'.<br>'
+    +'<b>Respostas marcadas (muito parecidas com o texto):</b> '+totalRed+'.<br>'
+    +'<b>Pontos marcados como "Não" na autoavaliação:</b> '+totalNao+'.<br>'
+    +(lista.length? '<span style="color:#ffb3b3">Há '+lista.length+' ponto(s) para revisar (lista acima).</span>' : '<span style="color:#8fe8c0">Sem pontos pendentes para revisar. 👏</span>');
+}
+
+/* ====== EXPORTAR / IMPORTAR / ZERAR ====== */
+function exportar(){
+  var dados=JSON.stringify(estado,null,2);
+  var blob=new Blob([dados],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='leitura-guiada_bazar-dos-disfarces.json'; a.click();
+}
+function importar(ev){
+  var f=ev.target.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(){ try{ estado=JSON.parse(r.result); salvar(); render(); mostrarModal('✅ Progresso importado!',false); }catch(e){ mostrarModal('❌ Arquivo inválido.',false); } };
+  r.readAsText(f);
+}
+var acaoZerar=null;
+function pedirZerar(){ acaoZerar=true; mostrarModal('Tem certeza que quer apagar TODO o progresso desta leitura? (O Quiz continua destravado se já tiver sido destravado.)',true); }
+function mostrarModal(txt,confirmar){
+  document.getElementById('modal-txt').innerHTML=txt;
+  document.getElementById('modal').classList.add('show');
+  document.getElementById('modal-cancel').style.display=confirmar?'inline-block':'none';
+  document.getElementById('modal-ok').textContent=confirmar?'Sim, apagar':'Ok';
+  document.getElementById('modal-ok').onclick=function(){ if(confirmar && acaoZerar){ var c=estado.concluido, ce=estado.concluidoEm; estado={blocos:{}}; if(c){estado.concluido=true; estado.concluidoEm=ce;} salvar(); render(); } acaoZerar=null; fecharModal(); };
+}
+function fecharModal(){ document.getElementById('modal').classList.remove('show'); }
+
+render();
+</script>
+</body>
+</html>
