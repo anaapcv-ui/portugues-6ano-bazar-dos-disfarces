@@ -151,7 +151,7 @@ function fmt(iso){ if(!iso) return ''; var d=new Date(iso); return d.toLocaleDat
 function faltaTexto(idx){ /* o que falta no material ANTERIOR para destravar este */
   var ant=TRILHA[idx-1]; var d=dados(ant.id)||{};
   if(!etapaConcluida(ant.id) && idx>1 && !etapaConcluida(TRILHA[idx-2].id)) return 'Destrava depois de concluir '+TRILHA[idx-2].nome+' e '+ant.nome+'.';
-  if(ant.id==='leitura'){ var p=d.progresso||{conferidos:0,total:11,chkPendentes:0}; var f=p.total-p.conferidos; return f>0? 'Destrava quando você conferir os '+p.total+' bancas da Leitura Guiada (faltam '+f+').' : 'Destrava quando você responder a autoavaliação da Leitura Guiada ('+p.chkPendentes+' ponto(s)).'; }
+  if(ant.id==='leitura'){ var p=d.progresso||{conferidos:0,total:11,chkPendentes:0}; var f=p.total-p.conferidos; return f>0? 'Destrava quando você conferir as '+p.total+' bancas da Leitura Guiada (faltam '+f+').' : 'Destrava quando você responder a autoavaliação da Leitura Guiada ('+p.chkPendentes+' ponto(s)).'; }
   if(ant.id==='quiz'){ var n=d.resp?Object.keys(d.resp).length:0; return 'Destrava quando você enviar o Quiz'+(n?' ('+n+' de 18 respondidas)':'')+'.'; }
   if(ant.id==='resumo'){ var r=Math.round(d.rolagemMax||0); return 'Destrava quando você ler o Resumo até o fim e clicar em "Li o resumo até o fim"'+(r?' (rolagem: '+r+'%)':'')+'.'; }
   return 'Destrava quando você concluir '+ant.nome+'.';
