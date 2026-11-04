@@ -736,12 +736,12 @@ function atualizarTrilhaFim(){
   var h3=box.querySelector('h3');
   if(estado.concluido||trilhaLiberada()){
     h3.textContent='✅ Leitura concluída — Quiz destravado!';
-    txt.textContent=estado.concluido?'Você conferiu os '+BLOCOS.length+' bancas e respondeu a autoavaliação. Agora teste o que aprendeu.':'Trilha liberada pelos pais.';
+    txt.textContent=estado.concluido?'Você conferiu as '+BLOCOS.length+' bancas e respondeu a autoavaliação. Agora teste o que aprendeu.':'Trilha liberada pelos pais.';
     btn.classList.remove('off');
   } else {
     h3.textContent='🔒 Próxima etapa: Quiz';
     var faltam=p.total-p.conferidos;
-    txt.textContent=faltam>0 ? 'Destrava quando você conferir os '+p.total+' bancas (faltam '+faltam+').' : 'Falta responder a autoavaliação Sim/Não de '+p.chkPendentes+' ponto(s) para destravar.';
+    txt.textContent=faltam>0 ? 'Destrava quando você conferir as '+p.total+' bancas (faltam '+faltam+').' : 'Falta responder a autoavaliação Sim/Não de '+p.chkPendentes+' ponto(s) para destravar.';
     btn.classList.add('off');
   }
   marcarNav();
